@@ -2,22 +2,22 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>TargetRetical.png</Source>
-      <Name>TargetRetical</Name>
+      <Source>Characters\Player.png</Source>
+      <Name>Characters\Player</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\TargetRetical.xnb</Output>
-      <Time>2014-09-01T15:21:33.5142723-07:00</Time>
+      <Output>D:\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\Characters\Player.xnb</Output>
+      <Time>2014-09-01T15:16:44.0688391-07:00</Time>
     </Item>
     <Item>
-      <Source>Characters\PlaceHolderRob.png</Source>
-      <Name>Characters\PlaceHolderRob</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
+      <Source>Audio\SFX\bing.wav</Source>
+      <Name>Audio\SFX\bing</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\Characters\PlaceHolderRob.xnb</Output>
-      <Time>2014-09-01T15:21:33.5142723-07:00</Time>
+      <Output>D:\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\Audio\SFX\bing.xnb</Output>
+      <Time>2014-09-01T15:16:44.0678979-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

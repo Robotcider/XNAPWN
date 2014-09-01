@@ -6,7 +6,7 @@ namespace WeakSven
 {
 	class Character : Entity
 	{
-		public Texture2D image = null;
+		public Animation animation = new Animation();
 
 		protected Rectangle rect = new Rectangle(0, 0, 0, 0);
 
@@ -19,13 +19,16 @@ namespace WeakSven
 
 		public virtual void Load(ContentManager Content, string imageFile)
 		{
-			image = Content.Load<Texture2D>(imageFile);
+			animation.FrameCountX = 4;
+			animation.FrameCountY = 4;
+			animation.FramesPerSec = 33;
 
-			rect.Width = image.Width;
-			rect.Height = image.Height;
+			animation.SpriteSheet = Content.Load<Texture2D>(imageFile);
 
 			rect.X = (int)Position.X;
 			rect.Y = (int)Position.Y;
+			rect.Width = animation.FrameWidth;
+			rect.Height = animation.FrameHeight;
 		}
 
 		public virtual void Update(GameTime gameTime)
@@ -34,11 +37,21 @@ namespace WeakSven
 
 			rect.X = (int)Position.X;
 			rect.Y = (int)Position.Y;
+
+			if (Velocity == Vector2.Zero)
+			{
+				animation.Frame = 1;
+				animation.Paused = true;
+			}
+			else
+				animation.Paused = false;
+
+			animation.Update(gameTime);
 		}
 
 		public void Draw(SpriteBatch spriteBatch)
 		{
-			spriteBatch.Draw(image, rect, Color.White);
+			animation.Draw(spriteBatch, Position);
 		}
 	}
 }

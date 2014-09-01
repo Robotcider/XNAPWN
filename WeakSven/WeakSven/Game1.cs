@@ -27,7 +27,7 @@ namespace WeakSven
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-			Player.Instance.Load(Content, "Characters/PlaceHolderRob");
+			Player.Instance.Load(Content, "Characters/Player");
         }
 
         protected override void UnloadContent() { }

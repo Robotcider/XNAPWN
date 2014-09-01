@@ -1,2 +1,2 @@
-Content\TargetRetical.xnb
-Content\Characters\PlaceHolderRob.xnb
+Content\Characters\Player.xnb
+Content\Audio\SFX\bing.xnb

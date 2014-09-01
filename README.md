@@ -1,5 +1,2 @@
-Week 7
+RoboticOperatingBuddy
 ======
-
-- WASD moves the character
-- Has custom sound wrapper
