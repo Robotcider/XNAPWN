@@ -40,6 +40,18 @@ namespace WeakSven
 			if (Keyboard.GetState().IsKeyDown(Keys.Escape))
 				this.Exit();
 
+			if (Player.Instance.Position.X >= Window.ClientBounds.Width)
+			{
+				Player.Instance.Position.X = Window.ClientBounds.Width - Player.Instance.image.Width;
+			}
+
+			if (Player.Instance.Position.Y >= Window.ClientBounds.Height)
+			{
+				Player.Instance.Position.Y = Window.ClientBounds.Height - Player.Instance.image.Height;
+			}
+
+
+			
 			Player.Instance.Update(gameTime);
 
             base.Update(gameTime);
