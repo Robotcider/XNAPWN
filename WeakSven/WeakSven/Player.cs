@@ -24,44 +24,41 @@ namespace WeakSven
 		private Player() : base() { }
 		#endregion
 
-		public AudioSFX bing = new AudioSFX();
 
 		public void SetName(string name) { Name = name; }
 
 		public override void Load(ContentManager Content, string imageFile)
 		{
 			base.Load(Content, imageFile);
-
-			bing.Sound = Content.Load<SoundEffect>("Audio/SFX/bing");
 		}
 
 		public override void Update(GameTime gameTime)
 		{
-			if (((int)gameTime.TotalGameTime.TotalSeconds) % 3 == 0)
-				bing.Play(gameTime);
 
-			// TODO:  Change player controls to fit your game
+			// TODO:  Change player to my Robotic operating Buddy
 
-			if (Keyboard.GetState().IsKeyDown(Keys.W) ||
-				Keyboard.GetState().IsKeyDown(Keys.Up))
-			{
-				Velocity.Y = -Speed;
-			}
-			else if (Keyboard.GetState().IsKeyDown(Keys.A) ||
+			if (Keyboard.GetState().IsKeyDown(Keys.A) ||
 				Keyboard.GetState().IsKeyDown(Keys.Left))
 			{
 				Velocity.X = -Speed;
 			}
-			else if (Keyboard.GetState().IsKeyDown(Keys.S) ||
-				Keyboard.GetState().IsKeyDown(Keys.Down))
-			{
-				Velocity.Y = Speed;
-			}
+
 			else if (Keyboard.GetState().IsKeyDown(Keys.D) ||
 				Keyboard.GetState().IsKeyDown(Keys.Right))
 			{
 				Velocity.X = Speed;
 			}
+
+			else if (Keyboard.GetState().IsKeyDown(Keys.W))
+			{
+				Velocity.Y = -Speed;
+			}
+
+			else if (Keyboard.GetState().IsKeyDown(Keys.S))
+			{
+				Velocity.Y = Speed;
+			}
+
 			else
 				Velocity = Vector2.Zero;
 
