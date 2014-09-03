@@ -9,6 +9,8 @@ namespace WeakSven
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        //Texture2D rect = new Texture2D();
+
 
         public Game1()
         {
@@ -30,6 +32,7 @@ namespace WeakSven
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
 			Player.Instance.Load(Content, "Characters/PlaceHolderRob");
+
         }
 
         protected override void UnloadContent() { }
@@ -41,8 +44,17 @@ namespace WeakSven
 
 			if (Keyboard.GetState().IsKeyDown(Keys.Escape))
 				this.Exit();
-			
 
+            if (Player.Instance.Position.X < 0)
+                Player.Instance.Position.X = 0;
+            if (Player.Instance.Position.Y < 0)
+                Player.Instance.Position.Y = 0;
+
+            if (Player.Instance.Position.X > Window.ClientBounds.X)
+                Player.Instance.Position.X = Window.ClientBounds.X - Player.Instance.image.Width;
+
+            if (Player.Instance.Position.Y > Window.ClientBounds.Y)
+                Player.Instance.Position.Y = Window.ClientBounds.Y - Player.Instance.image.Height;
 			
 			Player.Instance.Update(gameTime);
 

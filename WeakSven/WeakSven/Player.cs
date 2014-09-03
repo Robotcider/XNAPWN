@@ -25,9 +25,6 @@ namespace WeakSven
 		#endregion
 
 
-		public Vector2 Position = new Vector2(0, 0);
-		public Vector2 PrePosition = new Vector2(0, 0);
-
 		public void SetName(string name) { Name = name; }
 		
 		public override void Load(ContentManager Content, string imageFile)
