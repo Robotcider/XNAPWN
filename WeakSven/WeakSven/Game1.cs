@@ -50,10 +50,10 @@ namespace WeakSven
             if (Player.Instance.Position.Y < 0)
                 Player.Instance.Position.Y = 0;
 
-            if (Player.Instance.Position.X > Window.ClientBounds.X)
+            if (Player.Instance.Position.X + Player.Instance.image.Width > Window.ClientBounds.X)
                 Player.Instance.Position.X = Window.ClientBounds.X - Player.Instance.image.Width;
 
-            if (Player.Instance.Position.Y > Window.ClientBounds.Y)
+            if (Player.Instance.Position.Y + Player.Instance.image.Width > Window.ClientBounds.Y)
                 Player.Instance.Position.Y = Window.ClientBounds.Y - Player.Instance.image.Height;
 			
 			Player.Instance.Update(gameTime);
