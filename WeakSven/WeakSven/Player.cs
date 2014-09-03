@@ -24,6 +24,9 @@ namespace WeakSven
 		private Player() : base() { }
 		#endregion
 
+        public bool jumping = false;
+        public bool notJumping = false;
+        public bool jumped = false;
 
 		public void SetName(string name) { Name = name; }
 		
@@ -35,7 +38,23 @@ namespace WeakSven
 		public override void Update(GameTime gameTime)
 		{
 			// TODO:  Change player to my Robotic operating Buddy
-			
+
+            if (Keyboard.GetState().IsKeyDown(Keys.Space))
+            {
+                jumping = true;
+                Player.instance.Position.Y -= 10.0f;
+            }
+            if (jumping)
+            {
+                jumped = true;
+
+                if (jumped == true)
+                {
+                    jumping = false;
+
+                }
+            }
+
 			if (Keyboard.GetState().IsKeyDown(Keys.A) ||
 				Keyboard.GetState().IsKeyDown(Keys.Left))
 			{
