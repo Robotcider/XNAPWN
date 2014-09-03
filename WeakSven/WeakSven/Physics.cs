@@ -7,7 +7,7 @@ namespace WeakSven
 {
 	class Physics
 	{
-		public const float GRAVITY = 0.5f;
+		public const float GRAVITY = 3.5f;
 
 
 	}

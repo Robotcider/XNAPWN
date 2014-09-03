@@ -26,7 +26,7 @@ namespace WeakSven
 
 
 		public Vector2 Position = new Vector2(0, 0);
-
+		public Vector2 PrePosition = new Vector2(0, 0);
 
 		public void SetName(string name) { Name = name; }
 		
@@ -38,19 +38,19 @@ namespace WeakSven
 		public override void Update(GameTime gameTime)
 		{
 			// TODO:  Change player to my Robotic operating Buddy
-
+			
 			if (Keyboard.GetState().IsKeyDown(Keys.A) ||
 				Keyboard.GetState().IsKeyDown(Keys.Left))
 			{
 				Velocity.X = -Speed;
-				Velocity.Y += 1;
+				Velocity.Y -= 3.5f;
 			}
-
+			
 			else if (Keyboard.GetState().IsKeyDown(Keys.D) ||
 				Keyboard.GetState().IsKeyDown(Keys.Right))
 			{
 				Velocity.X = Speed;
-				Velocity.Y += 1;
+				Velocity.Y -= 3.5f;
 			}
 			else
 				Velocity = Vector2.Zero;

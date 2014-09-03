@@ -9,10 +9,13 @@ namespace WeakSven
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+			
+
         }
 
         protected override void Initialize()
@@ -26,7 +29,6 @@ namespace WeakSven
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
 			Player.Instance.Load(Content, "Characters/PlaceHolderRob");
         }
 
@@ -39,17 +41,7 @@ namespace WeakSven
 
 			if (Keyboard.GetState().IsKeyDown(Keys.Escape))
 				this.Exit();
-
-			if (Player.Instance.Position.X >= Window.ClientBounds.Width)
-			{
-				Player.Instance.Position.X = Window.ClientBounds.Width - Player.Instance.image.Width;
-			}
-
-			if (Player.Instance.Position.Y >= Window.ClientBounds.Height)
-			{
-				Player.Instance.Position.Y = Window.ClientBounds.Height - Player.Instance.image.Height;
-			}
-
+			
 
 			
 			Player.Instance.Update(gameTime);
