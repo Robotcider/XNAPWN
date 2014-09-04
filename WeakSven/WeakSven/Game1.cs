@@ -11,7 +11,6 @@ namespace WeakSven
 
         //Texture2D rect = new Texture2D();
 
-
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -44,6 +43,7 @@ namespace WeakSven
 
 			if (Keyboard.GetState().IsKeyDown(Keys.Escape))
 				this.Exit();
+
 
             if (Player.Instance.Position.X < 0)
                 Player.Instance.Position.X = 0;

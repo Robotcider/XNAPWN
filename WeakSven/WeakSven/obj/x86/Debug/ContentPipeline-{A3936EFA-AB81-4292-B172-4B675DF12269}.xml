@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\student\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\TargetRetical.xnb</Output>
-      <Time>2014-09-03T13:49:30.0672071-07:00</Time>
+      <Output>C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\TargetRetical.xnb</Output>
+      <Time>2014-09-01T15:53:52.4783337-07:00</Time>
     </Item>
     <Item>
       <Source>Characters\PlaceHolderRob.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\student\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\Characters\PlaceHolderRob.xnb</Output>
-      <Time>2014-09-03T13:49:30.0672071-07:00</Time>
+      <Output>C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\Characters\PlaceHolderRob.xnb</Output>
+      <Time>2014-09-01T16:58:33.9307991-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -26,10 +26,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\student\Documents\GitHub\XNAPWN\WeakSven\WeakSvenContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\student\Documents\GitHub\XNAPWN\WeakSven\WeakSven\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\student\Documents\GitHub\XNAPWN\WeakSven\WeakSven\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\student\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSvenContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -57,8 +57,8 @@
         <Value>2011-09-01T16:22:30-07:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2014-09-03T13:28:22.1379919-07:00</Value>
+        <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2014-07-19T15:27:56.8340835-07:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>
