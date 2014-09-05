@@ -25,6 +25,9 @@ namespace WeakSven
 		#endregion
 
         public bool jumping = false;
+		public int JumpStart = 0;
+		public int jumpLimit = 25;
+
 
 		public void SetName(string name) { Name = name; }
 		
@@ -41,7 +44,10 @@ namespace WeakSven
 				Player.instance.Position.Y -= 10.0f;
 
 			if (Keyboard.GetState().IsKeyDown(Keys.Space))
+			{
 				jumping = true;
+
+			}
 
 			if (Keyboard.GetState().IsKeyUp(Keys.Space))
 				jumping = false;
