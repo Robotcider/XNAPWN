@@ -34,7 +34,7 @@
     <Folder Include="Audio\SFX\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TargetRetical.png">
+    <Compile Include="HUD\TargetRetical.png">
       <Name>TargetRetical</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>

@@ -10,6 +10,8 @@ namespace WeakSven
 {
 	class HUD
 	{
+		Texture2D targetRetical = null;
+
 
 		public HUD()
 		{
@@ -18,12 +20,12 @@ namespace WeakSven
 
 		public void Update(GameTime gameTime)
 		{
-
+			
 		}
 
 		public void Load(ContentManager Content)
 		{
-
+			
 		}
 
 		public void Draw(SpriteBatch spriteBatch)
