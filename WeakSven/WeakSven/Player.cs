@@ -40,38 +40,50 @@ namespace WeakSven
 		{
 			// TODO:  Change player to my Robotic operating Buddy
 
-			if (jumping == true)
-				Player.instance.Position.Y -= 10.0f;
-
-			if (Keyboard.GetState().IsKeyDown(Keys.Space))
-			{
-				jumping = true;
-
-			}
-
-			if (Keyboard.GetState().IsKeyUp(Keys.Space))
-				jumping = false;
+            if (Keyboard.GetState().IsKeyDown(Keys.Space) &&
+                Game1.previousKeyboard.IsKeyUp(Keys.Space))
+            {
+                Velocity.Y = -25;
+            }
 
 			if (Keyboard.GetState().IsKeyDown(Keys.A) ||
 				Keyboard.GetState().IsKeyDown(Keys.Left))
 			{
 				Velocity.X = -Speed;
-				Velocity.Y -= 3.5f;
 			}
 			
 			else if (Keyboard.GetState().IsKeyDown(Keys.D) ||
 				Keyboard.GetState().IsKeyDown(Keys.Right))
 			{
 				Velocity.X = Speed;
-				Velocity.Y -= 3.5f;
 			}
 			else
-				Velocity = Vector2.Zero;
+				Velocity = new Vector2(0, Velocity.Y);
 
+            if (Position.X < 0)
+            {
+                Position.X = 0;
+                Velocity = new Vector2(0, Velocity.Y);
+            }
+            else if (Position.X + rect.Width > Game1.SCREEN_WIDTH)
+            {
+                Position.X = Game1.SCREEN_WIDTH - rect.Width;
+                Velocity = new Vector2(0, Velocity.Y);
+            }
 
-			Velocity.Y += Physics.GRAVITY;
+            if (Position.Y < 0)
+            {
+                Position.Y = 0;
+                Velocity = new Vector2(Velocity.X, 0);
+            }
 
 			base.Update(gameTime);
 		}
+
+        public void Landed(int floorY)
+        {
+            Position = new Vector2(Position.X, floorY - rect.Height);
+            Velocity = new Vector2(Velocity.X, 0);
+        }
 	}
 }

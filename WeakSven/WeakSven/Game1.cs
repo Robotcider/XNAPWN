@@ -12,6 +12,10 @@ namespace WeakSven
 		public static int SCREEN_WIDTH = 0;
 		public static int SCREEN_HEIGHT = 0;
 
+
+        public static KeyboardState previousKeyboard;
+
+
         HUD hud = new HUD();
         //Texture2D rect = new Texture2D();
 
@@ -51,24 +55,15 @@ namespace WeakSven
 			if (Keyboard.GetState().IsKeyDown(Keys.Escape))
 				this.Exit();
 
-            
-
-            if (Player.Instance.Position.X < 0)
-                Player.Instance.Position.X = 0;
-            if (Player.Instance.Position.Y < 0)
-                Player.Instance.Position.Y = 0;
-
-            if (Player.Instance.Position.X + Player.Instance.image.Width > Window.ClientBounds.Width)
-                Player.Instance.Position.X = Window.ClientBounds.Width - Player.Instance.image.Width;
-
-            if (Player.Instance.Position.Y + Player.Instance.image.Width > Window.ClientBounds.Height)
-                Player.Instance.Position.Y = Window.ClientBounds.Height - Player.Instance.image.Height;
+            if (Player.Instance.Position.Y + Player.Instance.image.Height > Window.ClientBounds.Height)
+                Player.Instance.Landed(Window.ClientBounds.Height);
 			
 			Player.Instance.Update(gameTime);
 
             hud.Update(gameTime);
 
             base.Update(gameTime);
+            previousKeyboard = Keyboard.GetState();
         }
 
         protected override void Draw(GameTime gameTime)

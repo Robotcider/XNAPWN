@@ -5,10 +5,8 @@ using System.Text;
 
 namespace WeakSven
 {
-	class Physics
-	{
-		public const float GRAVITY = 1.0f;
+    class Platform
+    {
 
-
-	}
+    }
 }
