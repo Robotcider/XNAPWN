@@ -12,6 +12,7 @@ namespace WeakSven
 		public static int SCREEN_WIDTH = 0;
 		public static int SCREEN_HEIGHT = 0;
 
+        HUD hud = new HUD();
         //Texture2D rect = new Texture2D();
 
         public Game1()
@@ -29,7 +30,7 @@ namespace WeakSven
 			SCREEN_WIDTH = Window.ClientBounds.Width;
 			SCREEN_HEIGHT = Window.ClientBounds.Height;
 			// Comment the following if you don't want to see the mouse
-			IsMouseVisible = true;
+            //IsMouseVisible = true;
         }
 
         protected override void LoadContent()
@@ -37,6 +38,7 @@ namespace WeakSven
             spriteBatch = new SpriteBatch(GraphicsDevice);
 			Player.Instance.Load(Content, "Characters/PlaceHolderRob");
 
+            hud.Load(Content);
         }
 
         protected override void UnloadContent() { }
@@ -49,6 +51,7 @@ namespace WeakSven
 			if (Keyboard.GetState().IsKeyDown(Keys.Escape))
 				this.Exit();
 
+            
 
             if (Player.Instance.Position.X < 0)
                 Player.Instance.Position.X = 0;
@@ -63,6 +66,8 @@ namespace WeakSven
 			
 			Player.Instance.Update(gameTime);
 
+            hud.Update(gameTime);
+
             base.Update(gameTime);
         }
 
@@ -71,6 +76,7 @@ namespace WeakSven
             GraphicsDevice.Clear(Color.Black);
 			spriteBatch.Begin();
 
+            hud.Draw(spriteBatch);
 			Player.Instance.Draw(spriteBatch);
 
 			spriteBatch.End();
