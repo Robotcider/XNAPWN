@@ -9,6 +9,7 @@ namespace WeakSven
 		public Texture2D image = null;
 
 		protected Rectangle rect = new Rectangle(0, 0, 0, 0);
+        
 
 		public Vector2 Position;
 		public Vector2 Velocity = Vector2.Zero;
@@ -34,6 +35,8 @@ namespace WeakSven
 
 			rect.X = (int)Position.X;
 			rect.Y = (int)Position.Y;
+
+            Velocity.Y += Physics.GRAVITY;
 		}
 
 		public void Draw(SpriteBatch spriteBatch)

@@ -26,7 +26,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\student\Desktop\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\Font.xnb</Output>
-      <Time>2014-09-06T13:39:03.7340519-07:00</Time>
+      <Time>2014-09-06T15:42:17.5090315-07:00</Time>
     </Item>
     <Item>
       <Source>portalTex.png</Source>
@@ -35,7 +35,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\student\Desktop\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\portalTex.xnb</Output>
-      <Time>2014-09-06T15:04:31.6930383-07:00</Time>
+      <Time>2014-09-06T15:42:17.5130315-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

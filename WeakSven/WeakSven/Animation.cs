@@ -38,6 +38,9 @@ namespace WeakSven
 			}
 		}
 
+        public int sequenceStart = 0;
+        public int sequenceEnd = 0;
+
 		public int Frame { get; set; }
 		public bool Paused { get; set; }
 		public float TotalElapsed { get; set; }
@@ -55,6 +58,11 @@ namespace WeakSven
 			{
 				Frame++;
 				// Keep the Frame between 0 and the total frames, minus one.
+
+                if (sequenceStart == sequenceEnd && sequenceStart == 0)
+                    Frame = Frame % (FrameCountX * FrameCountY); 
+                else
+                    Frame = Frame % (sequenceEnd - sequenceStart); 
 				Frame = Frame % (FrameCountX * FrameCountY);
 				TotalElapsed -= TimePerFrame;
 			}
