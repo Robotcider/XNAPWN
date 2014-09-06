@@ -15,6 +15,8 @@ namespace WeakSven
         private Rectangle RectPortal1;
         private Rectangle RectPortal2;
 
+        private bool leftPortal = true;
+
         private Texture2D portalTex =null;
 
         Vector2 VecPortal1, VecPortal2;
@@ -42,15 +44,25 @@ namespace WeakSven
 
         public void Update()
         {
-            //TODO: Detect player collision
+            //TODO: Fix Portal seizures
 
 
 
-            if (RectPortal1.Intersects(Player.Instance.getRect()))
+            if (RectPortal1.Intersects(Player.Instance.getRect()) && leftPortal)
+            {
                 Player.Instance.Position = VecPortalDest2;
+                leftPortal = false;
+            }
 
-            if (RectPortal2.Intersects(Player.Instance.getRect()))
+            if (RectPortal2.Intersects(Player.Instance.getRect()) && leftPortal)
+            {
                 Player.Instance.Position = VecPortalDest1;
+                leftPortal = false;
+            }
+            if (!RectPortal2.Intersects(Player.Instance.getRect()) && !RectPortal1.Intersects(Player.Instance.getRect()))
+                leftPortal = true;
+
+
         }
 
         public void Draw(SpriteBatch spriteBatch)
