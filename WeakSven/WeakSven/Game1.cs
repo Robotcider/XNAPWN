@@ -15,6 +15,9 @@ namespace WeakSven
         HUD hud = new HUD();
         //Texture2D rect = new Texture2D();
 
+        //Testing Two way portals
+        PortalTwoWay testPortal = new PortalTwoWay(new Vector2(100, 200),  new Vector2(300, 300));
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -39,6 +42,8 @@ namespace WeakSven
 			Player.Instance.Load(Content, "Characters/PlaceHolderRob");
 
             hud.Load(Content);
+
+            testPortal.Load(Content);
         }
 
         protected override void UnloadContent() { }
@@ -68,6 +73,8 @@ namespace WeakSven
 
             hud.Update(gameTime);
 
+            testPortal.Update();
+
             base.Update(gameTime);
         }
 
@@ -78,6 +85,8 @@ namespace WeakSven
 
             hud.Draw(spriteBatch);
 			Player.Instance.Draw(spriteBatch);
+
+            testPortal.Draw(spriteBatch);
 
 			spriteBatch.End();
             base.Draw(gameTime);

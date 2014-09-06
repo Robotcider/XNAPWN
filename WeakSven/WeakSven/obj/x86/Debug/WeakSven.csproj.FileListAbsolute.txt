@@ -22,3 +22,13 @@ C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\obj\x86\Debug\Microsof
 C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\obj\x86\Debug\WeakSven.exe
 C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\obj\x86\Debug\WeakSven.pdb
 C:\Users\student\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\HUD\TargetRetical.xnb
+C:\Users\student\Desktop\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\HUD\TargetRetical.xnb
+C:\Users\student\Desktop\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\Characters\PlaceHolderRob.xnb
+C:\Users\student\Desktop\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\Font.xnb
+C:\Users\student\Desktop\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\WeakSven.exe
+C:\Users\student\Desktop\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\WeakSven.pdb
+C:\Users\student\Desktop\XNAPWN\WeakSven\WeakSven\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\student\Desktop\XNAPWN\WeakSven\WeakSven\obj\x86\Debug\WeakSven.exe
+C:\Users\student\Desktop\XNAPWN\WeakSven\WeakSven\obj\x86\Debug\WeakSven.pdb
+C:\Users\student\Desktop\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\portalTex.xnb
+C:\Users\student\Desktop\XNAPWN\WeakSven\WeakSven\obj\x86\Debug\WeakSven.csprojResolveAssemblyReference.cache

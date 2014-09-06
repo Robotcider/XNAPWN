@@ -29,11 +29,14 @@ namespace WeakSven
 		public int jumpLimit = 25;
 
 
+
 		public void SetName(string name) { Name = name; }
 		
 		public override void Load(ContentManager Content, string imageFile)
 		{
 			base.Load(Content, imageFile);
+
+            Health = 100;
 		}
 
 		public override void Update(GameTime gameTime)
@@ -73,5 +76,10 @@ namespace WeakSven
 
 			base.Update(gameTime);
 		}
+
+        public Rectangle getRect()
+        {
+            return base.rect;
+        }
 	}
 }
