@@ -10,13 +10,12 @@ namespace WeakSven
 
 		protected Rectangle rect = new Rectangle(0, 0, 0, 0);
         
-
 		public Vector2 Position;
 		public Vector2 Velocity = Vector2.Zero;
 		public float Speed { get; protected set; }
 
-		public Character() : base() { Speed = 1.75f; }
-		public Character(string name) : base(name) { Speed = 1.75f; }
+		public Character() : base() { Speed = 5.50f; }
+		public Character(string name) : base(name) { Speed = 5.50f; }
 
 		public virtual void Load(ContentManager Content, string imageFile)
 		{

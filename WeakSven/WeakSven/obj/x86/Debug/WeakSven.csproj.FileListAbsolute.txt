@@ -13,7 +13,6 @@ D:\GitHub\XNAPWN\WeakSven\WeakSven\obj\x86\Debug\Microsoft.Xna.Framework.Runtime
 D:\GitHub\XNAPWN\WeakSven\WeakSven\obj\x86\Debug\WeakSven.exe
 D:\GitHub\XNAPWN\WeakSven\WeakSven\obj\x86\Debug\WeakSven.pdb
 C:\Users\student\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\Characters\PlaceHolderRob.xnb
-C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\TargetRetical.xnb
 C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\Characters\PlaceHolderRob.xnb
 C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\WeakSven.exe
 C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\WeakSven.pdb
@@ -32,3 +31,6 @@ C:\Users\student\Desktop\XNAPWN\WeakSven\WeakSven\obj\x86\Debug\WeakSven.exe
 C:\Users\student\Desktop\XNAPWN\WeakSven\WeakSven\obj\x86\Debug\WeakSven.pdb
 C:\Users\student\Desktop\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\portalTex.xnb
 C:\Users\student\Desktop\XNAPWN\WeakSven\WeakSven\obj\x86\Debug\WeakSven.csprojResolveAssemblyReference.cache
+C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\HUD\TargetRetical.xnb
+C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\portalTex.xnb
+C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\Font.xnb

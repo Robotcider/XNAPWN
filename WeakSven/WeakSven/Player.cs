@@ -46,7 +46,7 @@ namespace WeakSven
             if (Keyboard.GetState().IsKeyDown(Keys.Space) &&
                 Game1.previousKeyboard.IsKeyUp(Keys.Space))
             {
-                Velocity.Y = -25;
+                Velocity.Y = -15;
             }
 
 			if (Keyboard.GetState().IsKeyDown(Keys.A) ||
