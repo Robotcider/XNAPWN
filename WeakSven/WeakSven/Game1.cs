@@ -19,8 +19,7 @@ namespace WeakSven
         HUD hud = new HUD();
         //Texture2D rect = new Texture2D();
 
-        //Testing Two way portals
-        PortalTwoWay testPortal = new PortalTwoWay(new Vector2(100, 200),  new Vector2(300, 300));
+        Platform testPlat = new Platform(400, 100, 100, 25, "portalTex");
 
         public Game1()
         {
@@ -47,7 +46,7 @@ namespace WeakSven
 
             hud.Load(Content);
 
-            testPortal.Load(Content);
+            testPlat.Load(Content);
         }
 
         protected override void UnloadContent() { }
@@ -67,7 +66,6 @@ namespace WeakSven
 
             hud.Update(gameTime);
 
-            testPortal.Update();
 
             base.Update(gameTime);
             previousKeyboard = Keyboard.GetState();
@@ -80,8 +78,7 @@ namespace WeakSven
 
             hud.Draw(spriteBatch);
 			Player.Instance.Draw(spriteBatch);
-
-            testPortal.Draw(spriteBatch);
+            testPlat.Draw(spriteBatch);
 
 			spriteBatch.End();
             base.Draw(gameTime);

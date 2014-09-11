@@ -7,5 +7,9 @@ namespace WeakSven
 {
     class Level
     {
+        public Level()
+        {
+
+        }
     }
 }
