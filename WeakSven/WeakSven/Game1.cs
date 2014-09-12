@@ -8,6 +8,9 @@ namespace WeakSven
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        //Testing Camera;
+        Viewport mainCamera;
+        
 
 		public static int SCREEN_WIDTH = 0;
 		public static int SCREEN_HEIGHT = 0;
@@ -17,9 +20,14 @@ namespace WeakSven
 
 
         HUD hud = new HUD();
+
+
         //Texture2D rect = new Texture2D();
 
         Platform testPlat = new Platform(400, 100, 100, 25, "portalTex");
+
+        //Testing Camera;
+        Camera Camera;
 
         public Game1()
         {
@@ -42,6 +50,10 @@ namespace WeakSven
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            //Testing Camera;
+            mainCamera = GraphicsDevice.Viewport;
+            Camera = new Camera(mainCamera);
 			Player.Instance.Load(Content, "Characters/PlaceHolderRob");
 
             hud.Load(Content);
@@ -64,6 +76,7 @@ namespace WeakSven
 			
 			Player.Instance.Update(gameTime);
 
+
             hud.Update(gameTime);
 
 
@@ -74,7 +87,10 @@ namespace WeakSven
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-			spriteBatch.Begin();
+
+            //Testing Camera;
+            Vector2 parallax = new Vector2(1, 0);
+            spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, Camera.GetViewMatrix(parallax));
 
             hud.Draw(spriteBatch);
 			Player.Instance.Draw(spriteBatch);

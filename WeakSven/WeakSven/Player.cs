@@ -28,7 +28,7 @@ namespace WeakSven
 		public int JumpStart = 0;
 		public int jumpLimit = 25;
 
-
+        public Vector2 previousPosition { get; private set; }
 
 		public void SetName(string name) { Name = name; }
 		
@@ -41,6 +41,8 @@ namespace WeakSven
 
 		public override void Update(GameTime gameTime)
 		{
+
+            previousPosition = this.Position;
 			// TODO:  Change player to my Robotic operating Buddy
 
             if (Keyboard.GetState().IsKeyDown(Keys.Space) &&
@@ -91,6 +93,11 @@ namespace WeakSven
         {
             Position = new Vector2(Position.X, floorY - rect.Height);
             Velocity = new Vector2(Velocity.X, 0);
+        }
+
+        public Vector2 GetPositionDifference()
+        {
+            return new Vector2(Position.X - previousPosition.X, Position.Y - previousPosition.Y);
         }
 	}
 }
