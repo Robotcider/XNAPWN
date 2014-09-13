@@ -1,4 +1,0 @@
-Content\HUD\TargetRetical.xnb
-Content\Characters\PlaceHolderRob.xnb
-Content\portalTex.xnb
-Content\Font.xnb
