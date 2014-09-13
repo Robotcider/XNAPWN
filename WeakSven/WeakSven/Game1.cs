@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using WeekSevenGUI;
 
 namespace WeakSven
 {
@@ -10,9 +11,10 @@ namespace WeakSven
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        Button button = new Button(new Rectangle(0, 0, 200, 50));
+
 		public static int SCREEN_WIDTH = 0;
 		public static int SCREEN_HEIGHT = 0;
-
 
         public static KeyboardState previousKeyboard;
 
@@ -38,13 +40,25 @@ namespace WeakSven
 			SCREEN_HEIGHT = Window.ClientBounds.Height;
 			// Comment the following if you don't want to see the mouse
             //IsMouseVisible = true;
-
-
         }
 
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            /************************************************
+             * Button stuff Demo
+             */
+            //***********************************************
+            UIManager.Init(GraphicsDevice , Content.Load<SpriteFont>("Font"));
+            button.Text = "Dildoes";
+
+            button.onClick += button_onClick(button);
+
+            void button_onClick(Component sender)
+            {
+                ((Button)sender).Text = "Clicked";
+            }
+            //************************************************
 
 			Player.Instance.Load(Content, "Characters/PlaceHolderRob");
             //Creating platforms 
@@ -80,13 +94,13 @@ namespace WeakSven
                     Player.Instance.Velocity = new Vector2(0, 0);
             }
             
-
-			
 			Player.Instance.Update(gameTime);
             Camera.Instance.Update(gameTime);
             level1.Update(gameTime);
 
             hud.Update(gameTime);
+
+            UIManager.Update();
             
             base.Update(gameTime);
             previousKeyboard = Keyboard.GetState();
@@ -102,6 +116,8 @@ namespace WeakSven
 			Player.Instance.Draw(spriteBatch);
 
             level1.Draw(spriteBatch);
+
+            UIManager.Draw(spriteBatch);
 
 			spriteBatch.End();
             base.Draw(gameTime);

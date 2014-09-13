@@ -83,6 +83,8 @@ namespace WeakSven
                 Velocity = new Vector2(Velocity.X, 0);
             }
 
+           // if(image.Bounds.Contains(p
+
 			base.Update(gameTime);
 		}
 

@@ -35,9 +35,9 @@ namespace WeakSven
 
         public void Load(ContentManager Content)
         {
-            for (int i = 0; i < platforms.Count(); i++)
+            foreach (Platform p in platforms)
             {
-                platforms[i].Load(Content);
+                p.Load(Content);
             }
 
             font = Content.Load<SpriteFont>("Font");
@@ -45,14 +45,10 @@ namespace WeakSven
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            for (int i = 0; i < platforms.Count(); i++)
+            foreach (Platform p in platforms)
             {
-
-                platforms[i].Draw(spriteBatch);
+                p.Draw(spriteBatch);
             }
-
-
-
 
         }
     }

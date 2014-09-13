@@ -97,6 +97,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\WeekSevenGUI\WeekSevenGUI.csproj">
+      <Project>{b6e6990f-a284-4758-8a79-e3242df8c19c}</Project>
+      <Name>WeekSevenGUI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WeakSvenContent\WeakSvenContent.contentproj">
       <Name>WeakSvenContent</Name>
       <XnaReferenceType>Content</XnaReferenceType>
