@@ -10,11 +10,11 @@ namespace WeakSven
 {
     class Platform
     {
-        private Rectangle rect;
+        public Rectangle rect;
         private Texture2D image;
         private string imgFile;
-        public int x = 0;
-        public int y = 0;
+
+        public Vector2 startPosition;
         private int width;
         private int height;
         
@@ -39,11 +39,17 @@ namespace WeakSven
 
         private void Init(int LocX, int LocY, int newWidth, int newHeight)
         {
-            x = LocX;
-            y = LocY;
+            startPosition.X = LocX;
+            startPosition.Y = LocY;
+
             width = newWidth;
             height = newHeight;
-            rect = new Rectangle(x, y, width, height);
+            rect = new Rectangle((int)startPosition.X, (int)startPosition.Y, width, height);
+        }
+
+        public void Update(GameTime gameTime)
+        {
+
         }
 
         public void Load(ContentManager Content)

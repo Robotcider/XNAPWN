@@ -14,6 +14,13 @@ namespace WeakSven
 		Texture2D targetRetical = null;
         Rectangle rect = new Rectangle(0, 0, 25, 25);
         Vector2 playerHealthVec = new Vector2(100, 20);
+        Vector2 camX = new Vector2(100, 80);
+        Vector2 camY = new Vector2(100, 100);
+        Vector2 playerX = new Vector2(100, 120);
+        Vector2 playerY = new Vector2(100, 140);
+
+
+
         private int playerHealth;
         SpriteFont HUDFont;
 
@@ -40,6 +47,11 @@ namespace WeakSven
             spriteBatch.Draw(targetRetical, rect, Color.White);
 
             spriteBatch.DrawString(HUDFont, "Player Health: " + playerHealth, playerHealthVec, Color.Wheat);
+            spriteBatch.DrawString(HUDFont, "Camera x: " + Camera.Instance.x, camX, Color.Wheat);
+            spriteBatch.DrawString(HUDFont, "Camera y: " + Camera.Instance.y, camY, Color.Wheat);
+            spriteBatch.DrawString(HUDFont, "Player x: " + Player.Instance.Position.X, playerX, Color.Wheat);
+            spriteBatch.DrawString(HUDFont, "Plyaer y: " + Player.Instance.Position.Y, playerY, Color.Wheat);
+
 		}
 	}
 }

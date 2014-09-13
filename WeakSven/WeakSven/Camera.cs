@@ -7,19 +7,37 @@ using System.Text;
 
 namespace WeakSven
 {
+
     class Camera
     {
-        public Vector2 origin { get; set; }
-
-        public Camera(Viewport viewPort)
+        #region Singleton Stuff
+        private static Camera instance = null;
+        public static Camera Instance
         {
-           Vector2 origin = new Vector2(viewPort.Width / 2.0f, viewPort.Height / 2.0f);
+            get
+            {
+                if (instance == null)
+                    instance = new Camera();
 
+                return instance;
+            }
         }
 
-        public Matrix GetViewMatrix(Vector2 parallax)
+        private Camera() { }
+        #endregion
+
+        public float x;
+        public float y;
+        int width = Game1.SCREEN_WIDTH;
+        int height = Game1.SCREEN_HEIGHT;
+
+
+        public void Update(GameTime gameTime)
         {
-            return Matrix.CreateTranslation(new Vector3(origin, 0.0f));
+            x = Player.Instance.Position.X - (width * 0.5f);
+            y = Player.Instance.Position.Y - (height * 0.5f);
         }
+
+
     }
 }

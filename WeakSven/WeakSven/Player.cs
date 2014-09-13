@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 namespace WeakSven
@@ -98,6 +99,12 @@ namespace WeakSven
         public Vector2 GetPositionDifference()
         {
             return new Vector2(Position.X - previousPosition.X, Position.Y - previousPosition.Y);
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            Rectangle drawRect = new Rectangle(400, 300, image.Width, image.Height);
+            spriteBatch.Draw(image, drawRect, Color.White);
         }
 	}
 }
