@@ -28,8 +28,9 @@ namespace WeakSven
         {
             for (int i = 0; i < platforms.Count(); i++)
             {
-                platforms[i].rect.X = (int)(platforms[i].startPosition.X - Camera.Instance.x);
-                platforms[i].rect.Y = (int)(platforms[i].startPosition.Y - Camera.Instance.y);
+                platforms[i].Update(gameTime);
+                //platforms[i].rect.X = (int)(platforms[i].startPosition.X - Camera.Instance.x);
+                //platforms[i].rect.Y = (int)(platforms[i].startPosition.Y - Camera.Instance.y);
             }
         }
 

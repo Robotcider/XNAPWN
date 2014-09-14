@@ -49,7 +49,7 @@ namespace WeakSven
 
         public void Update(GameTime gameTime)
         {
-
+            rect = new Rectangle((int)(startPosition.X - Camera.Instance.x), (int)(startPosition.Y - Camera.Instance.y), rect.Width, rect.Height);
         }
 
         public void Load(ContentManager Content)

@@ -42,29 +42,14 @@ namespace WeakSven
             //IsMouseVisible = true;
         }
 
-        protected override void LoadContent()
+        void button_onClick(Component sender)
         {
-            spriteBatch = new SpriteBatch(GraphicsDevice);
-            /************************************************
-             * Button stuff Demo
-             */
-            //***********************************************
-            UIManager.Init(GraphicsDevice , Content.Load<SpriteFont>("Font"));
-            button.Text = "Dildoes";
+            ((Button)sender).Text = "Clicked";
 
-            button.onClick += button_onClick(button);
-
-            void button_onClick(Component sender)
-            {
-                ((Button)sender).Text = "Clicked";
-            }
-            //************************************************
-
-			Player.Instance.Load(Content, "Characters/PlaceHolderRob");
             //Creating platforms 
             //**************************************
             drawPlats = new List<Platform>();
-            for (int i = 5; i < 10; i++)
+            for (int i = 5; i < 6; i++)
             {
                 drawPlats.Add(new Platform((i * 100) + 100, (i * 25) + 200, 100, 25, "portalTex"));
             }
@@ -74,6 +59,24 @@ namespace WeakSven
             level1.Load(Content);
 
             hud.Load(Content);
+        }
+
+        protected override void LoadContent()
+        {
+            spriteBatch = new SpriteBatch(GraphicsDevice);
+            /************************************************
+             * Button stuff Demo
+             */
+            //***********************************************
+            UIManager.Init(GraphicsDevice , Content.Load<SpriteFont>("Font"));
+            button.Text = "Game";
+
+            button.onClick += button_onClick;
+
+            
+            //************************************************
+
+			Player.Instance.Load(Content, "Characters/PlaceHolderRob");
         }
 
         protected override void UnloadContent() { }
@@ -86,12 +89,22 @@ namespace WeakSven
 			if (Keyboard.GetState().IsKeyDown(Keys.Escape))
 				this.Exit();
 
+            UIManager.Update();
+
+            if (level1 == null)
+                return;
+
             if (Player.Instance.Position.Y + Player.Instance.image.Height > Window.ClientBounds.Height)
                 Player.Instance.Landed(Window.ClientBounds.Height);
-            for(int i = 0; i < level1.platforms.Count; i++)
+
+            for (int i = 0; i < level1.platforms.Count; i++)
             {
-                if (Player.Instance.getRect().Intersects(level1.platforms[i].rect))
-                    Player.Instance.Velocity = new Vector2(0, 0);
+                if (Player.Instance.Rect.Intersects(level1.platforms[i].rect))
+                {
+                     Player.Instance.Velocity = new Vector2(0, 0);
+                    Player.Instance.Position = new Vector2(Player.Instance.Position.X, level1.platforms[i].rect.Y + level1.platforms[i].rect.Height);
+                    break;
+                }
             }
             
 			Player.Instance.Update(gameTime);
@@ -100,8 +113,6 @@ namespace WeakSven
 
             hud.Update(gameTime);
 
-            UIManager.Update();
-            
             base.Update(gameTime);
             previousKeyboard = Keyboard.GetState();
         }
@@ -109,13 +120,15 @@ namespace WeakSven
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-
             spriteBatch.Begin();
 
-            hud.Draw(spriteBatch);
-			Player.Instance.Draw(spriteBatch);
+            if (level1 != null)
+            {
+                hud.Draw(spriteBatch);
+                Player.Instance.Draw(spriteBatch);
 
-            level1.Draw(spriteBatch);
+                level1.Draw(spriteBatch);
+            }
 
             UIManager.Draw(spriteBatch);
 

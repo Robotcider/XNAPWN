@@ -66,16 +66,16 @@ namespace WeakSven
 			else
 				Velocity = new Vector2(0, Velocity.Y);
 
-            if (Position.X < 0)
-            {
-                Position.X = 0;
-                Velocity = new Vector2(0, Velocity.Y);
-            }
-            else if (Position.X + rect.Width > Game1.SCREEN_WIDTH)
-            {
-                Position.X = Game1.SCREEN_WIDTH - rect.Width;
-                Velocity = new Vector2(0, Velocity.Y);
-            }
+            //if (Position.X < 0)
+            //{
+            //    Position.X = 0;
+            //    Velocity = new Vector2(0, Velocity.Y);
+            //}
+            //else if (Position.X + rect.Width > Game1.SCREEN_WIDTH)
+            //{
+            //    Position.X = Game1.SCREEN_WIDTH - rect.Width;
+            //    Velocity = new Vector2(0, Velocity.Y);
+            //}
 
             if (Position.Y < 0)
             {
@@ -83,15 +83,11 @@ namespace WeakSven
                 Velocity = new Vector2(Velocity.X, 0);
             }
 
-           // if(image.Bounds.Contains(p
-
 			base.Update(gameTime);
 		}
 
-        public Rectangle getRect()
-        {
-            return base.rect;
-        }
+        public Rectangle Rect { get { return rect; } }
+
         public void Landed(int floorY)
         {
             Position = new Vector2(Position.X, floorY - rect.Height);

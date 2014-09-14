@@ -48,18 +48,18 @@ namespace WeakSven
 
 
 
-            if (RectPortal1.Intersects(Player.Instance.getRect()) && leftPortal)
+            if (RectPortal1.Intersects(Player.Instance.Rect) && leftPortal)
             {
                 Player.Instance.Position = VecPortalDest2;
                 leftPortal = false;
             }
 
-            if (RectPortal2.Intersects(Player.Instance.getRect()) && leftPortal)
+            if (RectPortal2.Intersects(Player.Instance.Rect) && leftPortal)
             {
                 Player.Instance.Position = VecPortalDest1;
                 leftPortal = false;
             }
-            if (!RectPortal2.Intersects(Player.Instance.getRect()) && !RectPortal1.Intersects(Player.Instance.getRect()))
+            if (!RectPortal2.Intersects(Player.Instance.Rect) && !RectPortal1.Intersects(Player.Instance.Rect))
                 leftPortal = true;
 
 
