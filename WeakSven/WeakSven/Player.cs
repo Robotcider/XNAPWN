@@ -1,8 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Collections.Generic;
 
 namespace WeakSven
 {
@@ -29,6 +29,12 @@ namespace WeakSven
 		public int JumpStart = 0;
 		public int jumpLimit = 25;
 
+        //Things for projectiles 
+        //***********************************************
+        List<Projectile> bullets = new List<Projectile>();
+        Texture2D bulletTexture;
+        //**********************************************
+
         public Vector2 previousPosition { get; private set; }
 
 		public void SetName(string name) { Name = name; }
@@ -36,6 +42,8 @@ namespace WeakSven
 		public override void Load(ContentManager Content, string imageFile)
 		{
 			base.Load(Content, imageFile);
+            //PProjectile texture
+            bulletTexture = Content.Load<Texture2D>("portalTex");
 
             Health = 100;
 		}
@@ -83,7 +91,15 @@ namespace WeakSven
                 Velocity = new Vector2(Velocity.X, 0);
             }
 
+
+            foreach (Projectile p in bullets)
+                p.Update(gameTime);
+
+            if (Mouse.GetState().LeftButton == ButtonState.Pressed)
+                Player.Instance.Fire(new Vector2(Mouse.GetState().X, Mouse.GetState().Y));
+
 			base.Update(gameTime);
+
 		}
 
         public Rectangle Rect { get { return rect; } }
@@ -103,6 +119,14 @@ namespace WeakSven
         {
             Rectangle drawRect = new Rectangle(400, 300, image.Width, image.Height);
             spriteBatch.Draw(image, drawRect, Color.White);
+            foreach(Projectile p in bullets)
+                p.Draw(spriteBatch);
+        }
+
+        public void Fire(Vector2 mousePosition)
+        {
+            bullets.Add(new Projectile(Player.Instance.Position - new Vector2(Camera.Instance.x, Camera.Instance.y), mousePosition, bulletTexture));
+
         }
 	}
 }
