@@ -17,6 +17,8 @@ namespace WeakSven
 		public Character() : base() { Speed = 5.50f; }
 		public Character(string name) : base(name) { Speed = 5.50f; }
 
+		protected bool UseGravity = true;
+
 		public virtual void Load(ContentManager Content, string imageFile)
 		{
 			image = Content.Load<Texture2D>(imageFile);
@@ -35,7 +37,8 @@ namespace WeakSven
 			rect.X = (int)Position.X;
 			rect.Y = (int)Position.Y;
 
-            Velocity.Y += Physics.GRAVITY;
+			if (UseGravity)
+	            Velocity.Y += Physics.GRAVITY;
 		}
 
 		public void Draw(SpriteBatch spriteBatch)

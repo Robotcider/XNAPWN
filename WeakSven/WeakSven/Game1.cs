@@ -48,8 +48,6 @@ namespace WeakSven
         {
             base.Initialize();
 
-			SCREEN_WIDTH = Window.ClientBounds.Width;
-			SCREEN_HEIGHT = Window.ClientBounds.Height;
 			// Comment the following if you don't want to see the mouse
             //IsMouseVisible = true;
         }
@@ -61,17 +59,18 @@ namespace WeakSven
             //Creating platforms 
             //**************************************
             drawPlats = new List<Platform>();
-            for (int i = 5; i < 6; i++)
-            {
-                drawPlats.Add(new Platform((i * 100) + 100, (i * 25) + 200, 100, 25, "portalTex"));
-            }
+			//for (int i = 0; i < 6; i++)
+			//{
+			//	drawPlats.Add(new Platform((i * 100) + 100, (i * 25) + 200, 100, 25, "portalTex"));
+			//}
+			drawPlats.Add(new Platform(0, SCREEN_HEIGHT, 100, 25, "portalTex"));
 			MediaPlayer.Stop();
 
             level1 = new Level(drawPlats);
             //**************************************
             level1.Load(Content);
 
-            hud.Load(Content);
+           
 
 			button.onClick -= button_onClick;
 			button.Unload();
@@ -79,6 +78,9 @@ namespace WeakSven
 
         protected override void LoadContent()
         {
+			SCREEN_WIDTH = Window.ClientBounds.Width;
+			SCREEN_HEIGHT = Window.ClientBounds.Height;
+
             spriteBatch = new SpriteBatch(GraphicsDevice);
             /************************************************
              * Button stuff Demo
@@ -91,9 +93,11 @@ namespace WeakSven
 
             //************************************************
 
+			hud.Load(Content);
+
 			TitleSimage = Content.Load<Texture2D>("Pictures/Robscreen");
 
-			TitleTheme = Content.Load<Song>("Audio/Musak/vgbeat");
+			TitleTheme = Content.Load<Song>("Audio/Musak/ContraTitleScreen");
 
 			MediaPlayer.Play(TitleTheme);
 
@@ -112,6 +116,8 @@ namespace WeakSven
 
             UIManager.Update();
 
+			hud.Update(gameTime);
+
             if (level1 == null)
                 return;
 
@@ -122,7 +128,7 @@ namespace WeakSven
             {
                 if (Player.Instance.Rect.Intersects(level1.platforms[i].rect))
                 {
-                     Player.Instance.Velocity = new Vector2(0, 0);
+					Player.Instance.Velocity = new Vector2(0, 0);
                     Player.Instance.Position = new Vector2(Player.Instance.Position.X, level1.platforms[i].rect.Y + level1.platforms[i].rect.Height);
                     break;
                 }
@@ -149,12 +155,14 @@ namespace WeakSven
 
                 level1.Draw(spriteBatch);
 
-				hud.Draw(spriteBatch);
+				
             }
 			if(level1 == null)
 				spriteBatch.Draw(TitleSimage, TitleSrect, Color.White);
 
             UIManager.Draw(spriteBatch);
+
+			hud.Draw(spriteBatch);
 
 			spriteBatch.End();
             base.Draw(gameTime);

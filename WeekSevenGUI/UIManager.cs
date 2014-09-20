@@ -18,7 +18,6 @@ namespace WeekSevenGUI
 
         private UIManager(){}
 
-
         public static void Add(Component uiElement)
         {
             components.Add(uiElement);

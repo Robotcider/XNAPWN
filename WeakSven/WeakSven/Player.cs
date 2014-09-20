@@ -16,7 +16,10 @@ namespace WeakSven
 			get
 			{
 				if (instance == null)
+				{
 					instance = new Player();
+					instance.UseGravity = false;
+				}
 
 				return instance;
 			}
@@ -46,6 +49,8 @@ namespace WeakSven
             bulletTexture = Content.Load<Texture2D>("portalTex");
 
             Health = 100;
+			Position.X = (Game1.SCREEN_WIDTH - rect.Width) * 0.5f;
+			Position.Y = (Game1.SCREEN_HEIGHT - rect.Height) * 0.5f;
 		}
 
 		public override void Update(GameTime gameTime)
@@ -53,44 +58,6 @@ namespace WeakSven
 
             previousPosition = this.Position;
 			// TODO:  Change player to my Robotic operating Buddy
-
-            if (Keyboard.GetState().IsKeyDown(Keys.Space) &&
-                Game1.previousKeyboard.IsKeyUp(Keys.Space))
-            {
-                Velocity.Y = -15;
-            }
-
-			if (Keyboard.GetState().IsKeyDown(Keys.A) ||
-				Keyboard.GetState().IsKeyDown(Keys.Left))
-			{
-				Velocity.X = -Speed;
-			}
-			
-			else if (Keyboard.GetState().IsKeyDown(Keys.D) ||
-				Keyboard.GetState().IsKeyDown(Keys.Right))
-			{
-				Velocity.X = Speed;
-			}
-			else
-				Velocity = new Vector2(0, Velocity.Y);
-
-            //if (Position.X < 0)
-            //{
-            //    Position.X = 0;
-            //    Velocity = new Vector2(0, Velocity.Y);
-            //}
-            //else if (Position.X + rect.Width > Game1.SCREEN_WIDTH)
-            //{
-            //    Position.X = Game1.SCREEN_WIDTH - rect.Width;
-            //    Velocity = new Vector2(0, Velocity.Y);
-            //}
-
-            if (Position.Y < 0)
-            {
-                Position.Y = 0;
-                Velocity = new Vector2(Velocity.X, 0);
-            }
-
 
             foreach (Projectile p in bullets)
                 p.Update(gameTime);
@@ -117,8 +84,7 @@ namespace WeakSven
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            Rectangle drawRect = new Rectangle(400, 300, image.Width, image.Height);
-            spriteBatch.Draw(image, drawRect, Color.White);
+            spriteBatch.Draw(image, rect, Color.White);
             foreach(Projectile p in bullets)
                 p.Draw(spriteBatch);
         }

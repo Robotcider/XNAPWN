@@ -29,6 +29,15 @@
       <Time>2014-09-19T19:47:47.2389382-07:00</Time>
     </Item>
     <Item>
+      <Source>Pictures\Robscreen.png</Source>
+      <Name>Pictures\Robscreen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\Pictures\Robscreen.xnb</Output>
+      <Time>2014-09-20T12:02:18.911119-07:00</Time>
+    </Item>
+    <Item>
       <Source>Font.spritefont</Source>
       <Name>Font</Name>
       <Importer>FontDescriptionImporter</Importer>
@@ -48,13 +57,14 @@
       <Time>2014-09-20T10:18:33.8837259-07:00</Time>
     </Item>
     <Item>
-      <Source>Pictures\Robscreen.png</Source>
-      <Name>Pictures\Robscreen</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
+      <Source>Audio\Musak\ContraTitleScreen.mp3</Source>
+      <Name>Audio\Musak\ContraTitleScreen</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\Pictures\Robscreen.xnb</Output>
-      <Time>2014-09-20T11:36:10.2740066-07:00</Time>
+      <Output>C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\Audio\Musak\ContraTitleScreen.xnb</Output>
+      <Extra>C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\Audio\Musak\ContraTitleScreen.wma</Extra>
+      <Time>2014-09-20T13:30:36.6442449-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

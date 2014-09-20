@@ -22,20 +22,31 @@ namespace WeakSven
         public Platform()
         {
             Init(300, 300, 100, 25);
-            
         }
 
         public Platform(int LocX, int LocY, int newWidth, int newHeight)
         {
             Init(LocX, LocY, newWidth, newHeight);
-
+			Camera.Instance.changedPosition += Move;
         }
 
         public Platform(int LocX, int LocY, int newWidth, int newHeight, string newImage)
         {
             Init(LocX, LocY, newWidth, newHeight);
             imgFile = newImage;
+			Camera.Instance.changedPosition += Move;
         }
+
+		public void Unload()
+		{
+			Camera.Instance.changedPosition -= Move;
+		}
+
+		public void Move(float x, float y)
+		{
+			rect.X += (int)x;
+			rect.Y += (int)y;
+		}
 
         private void Init(int LocX, int LocY, int newWidth, int newHeight)
         {
@@ -45,11 +56,6 @@ namespace WeakSven
             width = newWidth;
             height = newHeight;
             rect = new Rectangle((int)startPosition.X, (int)startPosition.Y, width, height);
-        }
-
-        public void Update(GameTime gameTime)
-        {
-            rect = new Rectangle((int)(startPosition.X - Camera.Instance.x), (int)(startPosition.Y - Camera.Instance.y), rect.Width, rect.Height);
         }
 
         public void Load(ContentManager Content)
