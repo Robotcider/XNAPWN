@@ -31,13 +31,10 @@ namespace WeakSven
         private Camera() { }
         #endregion
 
-<<<<<<< HEAD
 		public delegate void ChangedPositionEvent(float x, float y);
 		public event ChangedPositionEvent changedPosition = null;
 
-=======
         public float Speed { get; private set; }
->>>>>>> origin/master
         public float x;
 		public float y;
         int width = Game1.SCREEN_WIDTH;
@@ -45,7 +42,6 @@ namespace WeakSven
 
 		private Vector2 previous = Vector2.Zero;
 
-<<<<<<< HEAD
 		public override void Update(GameTime gameTime)
 		{
 			Move();
@@ -96,27 +92,5 @@ namespace WeakSven
 				Velocity = new Vector2(Velocity.X, 0);
 			}
 		}
-=======
-        public void Update(GameTime gameTime)
-        {
-            if (Keyboard.GetState().IsKeyDown(Keys.Space) &&
-                Game1.previousKeyboard.IsKeyUp(Keys.Space))
-            {
-                y += -Speed;
-            }
-
-            if (Keyboard.GetState().IsKeyDown(Keys.A) ||
-                Keyboard.GetState().IsKeyDown(Keys.Left))
-            {
-                x += -Speed;
-            }
-
-            else if (Keyboard.GetState().IsKeyDown(Keys.D) ||
-                Keyboard.GetState().IsKeyDown(Keys.Right))
-            {
-                x += Speed;
-            }
-        }
->>>>>>> origin/master
     }
 }

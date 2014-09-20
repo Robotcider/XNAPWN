@@ -59,8 +59,6 @@ namespace WeakSven
             previousPosition = this.Position;
 			// TODO:  Change player to my Robotic operating Buddy
 
-<<<<<<< HEAD
-=======
             
 
             //if (Position.X < 0)
@@ -80,11 +78,8 @@ namespace WeakSven
                 Velocity = new Vector2(Velocity.X, 0);
             }
 
-
->>>>>>> origin/master
             foreach (Projectile p in bullets)
                 p.Update(gameTime);
-
 
 
 			base.Update(gameTime);
