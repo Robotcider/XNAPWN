@@ -66,6 +66,16 @@
       <Extra>C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\Audio\Musak\ContraTitleScreen.wma</Extra>
       <Time>2014-09-20T15:09:40.4437826-07:00</Time>
     </Item>
+    <Item>
+      <Source>Audio\Musak\Goldeneye.mp3</Source>
+      <Name>Audio\Musak\Goldeneye</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\Audio\Musak\Goldeneye.xnb</Output>
+      <Extra>C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\Audio\Musak\Goldeneye.wma</Extra>
+      <Time>2014-09-20T16:17:04.1977287-07:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{A3936EFA-AB81-4292-B172-4B675DF12269}</ContentProjectGUID>

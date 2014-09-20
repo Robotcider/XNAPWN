@@ -23,7 +23,8 @@ namespace WeakSven
 
 		//*********************************
 		protected Song TitleTheme;
-		
+
+		protected Song LevelSong1;
 
 		//********************************
 
@@ -66,6 +67,9 @@ namespace WeakSven
 			drawPlats.Add(new Platform(0, SCREEN_HEIGHT, 100, 25, "portalTex"));
 			MediaPlayer.Stop();
 
+
+			MediaPlayer.Play(LevelSong1);
+
             level1 = new Level(drawPlats);
             //**************************************
             level1.Load(Content);
@@ -99,7 +103,10 @@ namespace WeakSven
 
 			TitleTheme = Content.Load<Song>("Audio/Musak/ContraTitleScreen");
 
+			LevelSong1 = Content.Load<Song>("Audio/Musak/Goldeneye");
+
 			MediaPlayer.Play(TitleTheme);
+
 
 			Player.Instance.Load(Content, "Characters/PlaceHolderRob");
             Player.Instance.Position = new Vector2(400, 300);
@@ -159,7 +166,6 @@ namespace WeakSven
 
                 level1.Draw(spriteBatch);
 
-				
             }
 			if(level1 == null)
 				spriteBatch.Draw(TitleSimage, TitleSrect, Color.White);

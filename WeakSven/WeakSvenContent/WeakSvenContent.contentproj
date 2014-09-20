@@ -32,6 +32,7 @@
   <ItemGroup>
     <Folder Include="Audio\BGM\" />
     <Folder Include="Audio\SFX\" />
+    <Folder Include="Pictures\Main Game Background\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HUD\TargetRetical.png">
@@ -78,6 +79,13 @@
   <ItemGroup>
     <Compile Include="Audio\Musak\ContraTitleScreen.mp3">
       <Name>ContraTitleScreen</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Audio\Musak\Goldeneye.mp3">
+      <Name>Goldeneye</Name>
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
     </Compile>
