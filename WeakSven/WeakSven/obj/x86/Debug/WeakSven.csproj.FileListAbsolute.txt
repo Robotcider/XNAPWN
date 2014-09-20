@@ -42,3 +42,4 @@ C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\WeekSeve
 C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\WeekSevenGUI.pdb
 C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\Audio\Musak\vgbeat.xnb
 C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\Audio\Musak\vgbeat.wma
+C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\Pictures\Robscreen.xnb

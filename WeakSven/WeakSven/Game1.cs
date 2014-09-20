@@ -12,7 +12,11 @@ namespace WeakSven
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        Button button = new Button(new Rectangle(0, 0, 200, 50));
+        Button button = new Button(new Rectangle(300, 400, 200, 50));
+
+		Vector2 TitleSrect = new Vector2(75, 0);
+
+		Texture2D TitleSimage;
 
 		public static int SCREEN_WIDTH = 0;
 		public static int SCREEN_HEIGHT = 0;
@@ -85,9 +89,9 @@ namespace WeakSven
 
             button.onClick += button_onClick;
 
-            
             //************************************************
 
+			TitleSimage = Content.Load<Texture2D>("Pictures/Robscreen");
 
 			TitleTheme = Content.Load<Song>("Audio/Musak/vgbeat");
 
@@ -147,6 +151,8 @@ namespace WeakSven
 
 				hud.Draw(spriteBatch);
             }
+			if(level1 == null)
+				spriteBatch.Draw(TitleSimage, TitleSrect, Color.White);
 
             UIManager.Draw(spriteBatch);
 

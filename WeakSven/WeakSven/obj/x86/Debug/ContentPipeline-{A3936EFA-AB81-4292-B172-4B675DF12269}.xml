@@ -45,7 +45,16 @@
       <Options>None</Options>
       <Output>C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\Audio\Musak\vgbeat.xnb</Output>
       <Extra>C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\Audio\Musak\vgbeat.wma</Extra>
-      <Time>2014-09-20T09:50:20.1896494-07:00</Time>
+      <Time>2014-09-20T10:18:33.8837259-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Pictures\Robscreen.png</Source>
+      <Name>Pictures\Robscreen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\Pictures\Robscreen.xnb</Output>
+      <Time>2014-09-20T11:36:10.2740066-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

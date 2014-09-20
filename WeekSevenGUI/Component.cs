@@ -54,9 +54,11 @@ namespace WeekSevenGUI
                     if (!released)
                         if (onMouseUp != null)
                             onMouseUp(this);
+
                     if (clicked)
                         if (onClick != null)
                             onClick(this);
+
                     clicked = false;
                     released = true;
                     
