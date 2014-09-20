@@ -102,6 +102,7 @@ namespace WeakSven
 			MediaPlayer.Play(TitleTheme);
 
 			Player.Instance.Load(Content, "Characters/PlaceHolderRob");
+            Player.Instance.Position = new Vector2(400, 300);
         }
 
         protected override void UnloadContent() { }
@@ -133,6 +134,9 @@ namespace WeakSven
                     break;
                 }
             }
+
+            if (Mouse.GetState().LeftButton == ButtonState.Pressed)
+                Player.Instance.Fire(new Vector2(Mouse.GetState().X, Mouse.GetState().Y));
             
 			Player.Instance.Update(gameTime);
             Camera.Instance.Update(gameTime);

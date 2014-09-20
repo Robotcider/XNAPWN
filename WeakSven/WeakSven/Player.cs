@@ -59,11 +59,33 @@ namespace WeakSven
             previousPosition = this.Position;
 			// TODO:  Change player to my Robotic operating Buddy
 
+<<<<<<< HEAD
+=======
+            
+
+            //if (Position.X < 0)
+            //{
+            //    Position.X = 0;
+            //    Velocity = new Vector2(0, Velocity.Y);
+            //}
+            //else if (Position.X + rect.Width > Game1.SCREEN_WIDTH)
+            //{
+            //    Position.X = Game1.SCREEN_WIDTH - rect.Width;
+            //    Velocity = new Vector2(0, Velocity.Y);
+            //}
+
+            if (Position.Y < 0)
+            {
+                Position.Y = 0;
+                Velocity = new Vector2(Velocity.X, 0);
+            }
+
+
+>>>>>>> origin/master
             foreach (Projectile p in bullets)
                 p.Update(gameTime);
 
-            if (Mouse.GetState().LeftButton == ButtonState.Pressed)
-                Player.Instance.Fire(new Vector2(Mouse.GetState().X , Mouse.GetState().Y ));
+
 
 			base.Update(gameTime);
 
@@ -91,7 +113,7 @@ namespace WeakSven
 
         public void Fire(Vector2 mousePosition)
         {
-             bullets.Add(new Projectile(Player.Instance.Position, mousePosition, bulletTexture));
+             bullets.Add(new Projectile(new Vector2(Camera.Instance.x + 400, Camera.Instance.y + 300), mousePosition, bulletTexture));
 
         }
 	}

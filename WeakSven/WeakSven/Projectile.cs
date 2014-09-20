@@ -14,9 +14,10 @@ namespace WeakSven
 
         public Projectile(Vector2 origin,Vector2 newDirection, Texture2D bulletTex)
         {
-            position = origin - new Vector2(Camera.Instance.x, Camera.Instance.y);
+            //position = origin - new Vector2(Camera.Instance.x, Camera.Instance.y);
+            position = origin;
 
-            destination = newDirection - position;
+            destination = newDirection - Player.Instance.Position;
             //destination = newDirection;
             if(destination != Vector2.Zero)
                 destination.Normalize();
@@ -29,7 +30,7 @@ namespace WeakSven
 
             if (rect.Y < 2000 && rect.Y > -2000 && rect.X < 2000 && rect.X > -2000)
             {
-                
+                position += destination * speed * gameTime.ElapsedGameTime.Milliseconds;
 
                 rect.X = (int)position.X - (int)Camera.Instance.x;
                 rect.Y = (int)position.Y - (int)Camera.Instance.y;
