@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using WeekSevenGUI;
+using Microsoft.Xna.Framework.Media;
 
 namespace WeakSven
 {
@@ -16,11 +17,15 @@ namespace WeakSven
 		public static int SCREEN_WIDTH = 0;
 		public static int SCREEN_HEIGHT = 0;
 
+		//*********************************
+		protected Song TitleTheme;
+		
+
+		//********************************
+
         public static KeyboardState previousKeyboard;
 
         HUD hud = new HUD();
-
-
 
         List<Platform> drawPlats;
 
@@ -56,12 +61,16 @@ namespace WeakSven
             {
                 drawPlats.Add(new Platform((i * 100) + 100, (i * 25) + 200, 100, 25, "portalTex"));
             }
+			MediaPlayer.Stop();
 
             level1 = new Level(drawPlats);
             //**************************************
             level1.Load(Content);
 
             hud.Load(Content);
+
+			button.onClick -= button_onClick;
+			button.Unload();
         }
 
         protected override void LoadContent()
@@ -72,12 +81,17 @@ namespace WeakSven
              */
             //***********************************************
             UIManager.Init(GraphicsDevice , Content.Load<SpriteFont>("Font"));
-            button.Text = "Game";
+            button.Text = "Start";
 
             button.onClick += button_onClick;
 
             
             //************************************************
+
+
+			TitleTheme = Content.Load<Song>("Audio/Musak/vgbeat");
+
+			MediaPlayer.Play(TitleTheme);
 
 			Player.Instance.Load(Content, "Characters/PlaceHolderRob");
         }
@@ -133,10 +147,11 @@ namespace WeakSven
 
             if (level1 != null)
             {
-                hud.Draw(spriteBatch);
                 Player.Instance.Draw(spriteBatch);
 
                 level1.Draw(spriteBatch);
+
+				hud.Draw(spriteBatch);
             }
 
             UIManager.Draw(spriteBatch);

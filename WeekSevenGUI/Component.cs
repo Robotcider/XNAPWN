@@ -1,7 +1,7 @@
-﻿
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+
 namespace WeekSevenGUI
 {
     public class Component
@@ -26,6 +26,11 @@ namespace WeekSevenGUI
             UIManager.Add(this);
         }
 
+		public void Unload()
+		{
+			UIManager.Remove(this);
+		}
+
         public void Update()
         {
             MouseState mouse = Mouse.GetState();
@@ -33,8 +38,10 @@ namespace WeekSevenGUI
             if (rect.Contains(mouse.X, mouse.Y))
             {
                 if (!hovering)
-                    if (onMouseOver != null)
-                        onMouseOver(this);
+					if (onMouseOver != null)
+					{
+						onMouseOver(this);
+					}
                 if (mouse.LeftButton == ButtonState.Pressed)
                 {
                     if (!clicked)
@@ -67,7 +74,10 @@ namespace WeekSevenGUI
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-
+			if (hovering)
+			{
+				spriteBatch.Draw(square, rect, Color.Red);
+			}
         }
     }
 }

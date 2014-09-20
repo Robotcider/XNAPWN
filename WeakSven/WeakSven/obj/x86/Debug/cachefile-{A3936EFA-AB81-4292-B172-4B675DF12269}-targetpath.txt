@@ -2,3 +2,5 @@ Content\HUD\TargetRetical.xnb
 Content\Characters\PlaceHolderRob.xnb
 Content\portalTex.xnb
 Content\Font.xnb
+Content\Audio\Musak\vgbeat.xnb
+Content\Audio\Musak\vgbeat.wma
