@@ -54,25 +54,7 @@ namespace WeakSven
             previousPosition = this.Position;
 			// TODO:  Change player to my Robotic operating Buddy
 
-            if (Keyboard.GetState().IsKeyDown(Keys.Space) &&
-                Game1.previousKeyboard.IsKeyUp(Keys.Space))
-            {
-                Velocity.Y = -15;
-            }
-
-			if (Keyboard.GetState().IsKeyDown(Keys.A) ||
-				Keyboard.GetState().IsKeyDown(Keys.Left))
-			{
-				Velocity.X = -Speed;
-			}
-			
-			else if (Keyboard.GetState().IsKeyDown(Keys.D) ||
-				Keyboard.GetState().IsKeyDown(Keys.Right))
-			{
-				Velocity.X = Speed;
-			}
-			else
-				Velocity = new Vector2(0, Velocity.Y);
+            
 
             //if (Position.X < 0)
             //{
@@ -95,8 +77,7 @@ namespace WeakSven
             foreach (Projectile p in bullets)
                 p.Update(gameTime);
 
-            if (Mouse.GetState().LeftButton == ButtonState.Pressed)
-                Player.Instance.Fire(new Vector2(Mouse.GetState().X , Mouse.GetState().Y ));
+
 
 			base.Update(gameTime);
 
@@ -117,15 +98,14 @@ namespace WeakSven
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            Rectangle drawRect = new Rectangle(400, 300, image.Width, image.Height);
-            spriteBatch.Draw(image, drawRect, Color.White);
+            spriteBatch.Draw(image, rect, Color.White);
             foreach(Projectile p in bullets)
                 p.Draw(spriteBatch);
         }
 
         public void Fire(Vector2 mousePosition)
         {
-             bullets.Add(new Projectile(Player.Instance.Position, mousePosition, bulletTexture));
+             bullets.Add(new Projectile(new Vector2(Camera.Instance.x + 400, Camera.Instance.y + 300), mousePosition, bulletTexture));
 
         }
 	}
