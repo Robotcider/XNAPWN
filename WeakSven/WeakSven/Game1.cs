@@ -106,12 +106,6 @@ namespace WeakSven
 			if (Keyboard.GetState().IsKeyDown(Keys.Escape))
 				this.Exit();
 
-            //hopefully this fires projectiles
-            //I'm having trouble getting mouseclicks
-            if(Keyboard.GetState().IsKeyDown(Keys.R))
-                Player.Instance.Fire(new Vector2(ms.X,ms.Y));
-
-
             UIManager.Update();
 
             if (level1 == null)

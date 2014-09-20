@@ -96,7 +96,7 @@ namespace WeakSven
                 p.Update(gameTime);
 
             if (Mouse.GetState().LeftButton == ButtonState.Pressed)
-                Player.Instance.Fire(new Vector2(Mouse.GetState().X, Mouse.GetState().Y));
+                Player.Instance.Fire(new Vector2(Mouse.GetState().X , Mouse.GetState().Y ));
 
 			base.Update(gameTime);
 
