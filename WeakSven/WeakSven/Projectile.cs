@@ -26,15 +26,29 @@ namespace WeakSven
 
         public void Update(GameTime gameTime)
         {
-            position += destination * speed * gameTime.ElapsedGameTime.Milliseconds;
-            rect.X = (int)position.X;
-            rect.Y = (int)position.Y;
+
+            if (rect.Y < 2000 && rect.Y > -2000 && rect.X < 2000 && rect.X > -2000)
+            {
+                position += destination * speed * gameTime.ElapsedGameTime.Milliseconds;
+                rect.X = (int)position.X;
+                rect.Y = (int)position.Y;
+            }
+
+
+
+                
 
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(image, rect, Color.White);
+            if (rect.Y < 2000 && rect.Y > -2000 && rect.X < 2000 && rect.X > -2000)
+            {
+                Rectangle drawRect = new Rectangle((int)(rect.X - Camera.Instance.x), (int)(rect.Y - Camera.Instance.y), rect.Width, rect.Height);
+                spriteBatch.Draw(image, drawRect, Color.White);
+
+                
+            }
         }
     }
 }

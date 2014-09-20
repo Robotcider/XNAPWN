@@ -125,7 +125,7 @@ namespace WeakSven
 
         public void Fire(Vector2 mousePosition)
         {
-            bullets.Add(new Projectile(Player.Instance.Position - new Vector2(Camera.Instance.x, Camera.Instance.y), mousePosition, bulletTexture));
+             bullets.Add(new Projectile(Player.Instance.Position, mousePosition, bulletTexture));
 
         }
 	}
