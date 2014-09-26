@@ -58,39 +58,11 @@ namespace WeakSven
 			base.Update(gameTime);
 		}
 
-		private void Move()
-		{
-			if (Position.Y > Game1.SCREEN_HEIGHT)
-			{
-				Velocity.Y = 0;
-				Position.Y = Game1.SCREEN_HEIGHT;
-			}
+        private void Move()
+        {
+            Position = Player.Instance.Position;
+        }
 
-			if (Keyboard.GetState().IsKeyDown(Keys.Space) &&
-				Game1.previousKeyboard.IsKeyUp(Keys.Space))
-			{
-				Velocity.Y = -15;
-			}
 
-			if (Keyboard.GetState().IsKeyDown(Keys.A) ||
-				Keyboard.GetState().IsKeyDown(Keys.Left))
-			{
-				Velocity.X = -Speed;
-			}
-
-			else if (Keyboard.GetState().IsKeyDown(Keys.D) ||
-				Keyboard.GetState().IsKeyDown(Keys.Right))
-			{
-				Velocity.X = Speed;
-			}
-			else
-				Velocity = new Vector2(0, Velocity.Y);
-
-			if (Position.Y < 0)
-			{
-				Position.Y = 0;
-				Velocity = new Vector2(Velocity.X, 0);
-			}
-		}
     }
 }

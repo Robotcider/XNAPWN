@@ -11,8 +11,13 @@ namespace WeakSven
     class Level
     {
 
-        static int x = 1600;
-        static int y = 1200;
+        //static int width = 1600;
+        //static int height = 1200;
+
+        public int width { get; private set; }
+        public int height { get; private set; }
+
+
 
         SpriteFont font;
 
@@ -22,11 +27,21 @@ namespace WeakSven
         public Level(List<Platform> newPlats)
         {
             platforms = newPlats;
+            width = 1600;
+            height = 1200;
         }
 
         public void Update(GameTime gameTime)
         {
-
+            for (int i = 0; i < platforms.Count; i++)
+            {
+                if (Player.Instance.Rect.Intersects(platforms[i].rect))
+                {
+                    Player.Instance.Velocity = new Vector2(0, 0);
+                    Player.Instance.Position = new Vector2(Player.Instance.Position.X, platforms[i].startPosition.Y - Player.Instance.Rect.Height );
+                    break;
+                }
+            }
         }
 
         public void Load(ContentManager Content)

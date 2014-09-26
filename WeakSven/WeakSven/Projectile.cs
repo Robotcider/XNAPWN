@@ -50,5 +50,11 @@ namespace WeakSven
                 spriteBatch.Draw(image, rect, Color.White);
             }
         }
+
+        private void Move(float x, float y)
+        {
+            rect.X = (int)x;
+            rect.Y = (int)y;
+        }
     }
 }
