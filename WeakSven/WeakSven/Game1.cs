@@ -108,12 +108,9 @@ namespace WeakSven
 
             if (LevelHandler.Instance.CurrentLevel == null)
                 return;
-
-
-            
+ 
 			Player.Instance.Update(gameTime);
             Camera.Instance.Update(gameTime);
-
 
             LevelHandler.Instance.Update(gameTime);
 

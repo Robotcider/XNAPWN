@@ -30,8 +30,7 @@ namespace WeakSven
             {
                 if (Player.Instance.Rect.Intersects(p.rect))
                 {
-                    Player.Instance.Velocity = new Vector2(0, 0);
-                    Player.Instance.Position = new Vector2(Player.Instance.Position.X, p.rect.Y - Player.Instance.Rect.Height);
+                     Player.Instance.Landed((int)p.startPosition.Y);
                      break;
                 }
             }

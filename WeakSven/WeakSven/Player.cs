@@ -88,15 +88,16 @@ namespace WeakSven
             Position += Velocity;
             Velocity.Y += Physics.GRAVITY;
 
-            if (Position.Y + image.Height > LevelHandler.Instance.CurrentLevel.y)
-                Landed(LevelHandler.Instance.CurrentLevel.y);  
 
 		}
 
         public void Landed(int floorY)
         {
-            Position = new Vector2(Position.X, floorY - rect.Height);
-            Velocity = new Vector2(Velocity.X, 0);
+            //Position = new Vector2(Position.X, floorY - rect.Height);
+            //Velocity = new Vector2(Velocity.X, 0);
+            Velocity.Y = 0;
+            Position.Y = floorY - rect.Height;
+            
         }
 
         public Vector2 GetPositionDifference()
@@ -123,10 +124,7 @@ namespace WeakSven
             if (Keyboard.GetState().IsKeyDown(Keys.Space) &&
                 Game1.previousKeyboard.IsKeyUp(Keys.Space))
             {
-                //if (Player.Instance.Velocity != Vector2.Zero && Keyboard.GetState().IsKeyDown(Keys.Space))
-                //    Velocity.Y = -15;
                 Velocity.Y = -15;
-
             }
 
             if (Keyboard.GetState().IsKeyDown(Keys.A) ||
