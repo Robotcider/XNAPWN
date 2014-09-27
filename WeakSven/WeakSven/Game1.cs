@@ -90,7 +90,7 @@ namespace WeakSven
 			MediaPlayer.Play(TitleTheme);
 
 
-			Player.Instance.Load(Content, "Characters/PlaceHolderRob");
+            Player.Instance.Load(Content, "Characters/Rob");
             //TODO: Create spawnpoint vector in each level, spawn player at point
             Player.Instance.Position = new Vector2(400, 600);
         }
@@ -108,7 +108,7 @@ namespace WeakSven
 
             if (LevelHandler.Instance.CurrentLevel == null)
                 return;
- 
+
 			Player.Instance.Update(gameTime);
             Camera.Instance.Update(gameTime);
 

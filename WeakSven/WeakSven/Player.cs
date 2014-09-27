@@ -45,14 +45,19 @@ namespace WeakSven
 		
 		public override void Load(ContentManager Content, string imageFile)
 		{
+            Robanim.FrameCountX = 4;
+            Robanim.FrameCountY = 3;
+            Robanim.FramesPerSec = 12;
+
+            Robanim.sequenceEnd = 4;
+
+            base.Load(Content, imageFile);
 
             bulletTexture = Content.Load<Texture2D>("portalTex");
-            image = Content.Load<Texture2D>(imageFile);
+            
             Health = 100;
-
-            rect.Width = image.Width;
-            rect.Height = image.Height;
-
+            //Position.X = (Game1.SCREEN_WIDTH - rect.Width) * .5f;
+            //Position.Y = (Game1.SCREEN_HEIGHT - rect.Height) * .5f;
 
             //The numbers should be variables, I'm not sure which variables
             //See Camera.Move() for corresponding numbers
@@ -67,23 +72,45 @@ namespace WeakSven
 
             previousPosition = this.Position;
 
-            if (Position.Y < 0)
-            {
-                Position.Y = 0;
-                Velocity = new Vector2(Velocity.X, 0);
-            }
             //*****************************
             //projectile shit
 
             if (Mouse.GetState().LeftButton == ButtonState.Pressed &&
                  Game1.previousMouse.LeftButton == ButtonState.Released)
                 Fire(new Vector2(Mouse.GetState().X - 400, Mouse.GetState().Y - 240));
-            
+
+            if (Keyboard.GetState().IsKeyDown(Keys.D))
+            {
+                Robanim.sequenceStart = 0;
+                Robanim.sequenceEnd = 4;
+
+                if (Robanim.Frame == 7)
+                    Robanim.paused = true;
+                Robanim.Update(gameTime);
+
+            }
+            else if (Keyboard.GetState().IsKeyDown(Keys.A))
+            {
+                Robanim.sequenceStart = 4;
+                Robanim.sequenceEnd = 8;
+
+                if (Robanim.Frame == 7)
+                    Robanim.paused = true;
+                Robanim.Update(gameTime);
+
+            }
+
+            if (Position.Y < 0)
+            {
+                Position.Y = 0;
+                Velocity = new Vector2(Velocity.X, 0);
+            }
+
             foreach (Projectile p in bullets)
                 p.Update(gameTime);                   
             //*****************************************
 
-
+            base.Update(gameTime);
 
             Position += Velocity;
             Velocity.Y += Physics.GRAVITY;
@@ -107,9 +134,9 @@ namespace WeakSven
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(image, Rect, Color.White);
             foreach(Projectile p in bullets)
                 p.Draw(spriteBatch);
+            base.Draw(spriteBatch);
         }
 
         public void Fire(Vector2 mousePosition)

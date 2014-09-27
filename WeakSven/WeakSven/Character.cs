@@ -6,7 +6,8 @@ namespace WeakSven
 {
 	class Character : Entity
 	{
-		public Texture2D image = null;
+        //public Texture2D image = null;
+        public Animation Robanim = new Animation();
 
 		protected Rectangle rect = new Rectangle(0, 0, 0, 0);
         
@@ -21,13 +22,13 @@ namespace WeakSven
 
 		public virtual void Load(ContentManager Content, string imageFile)
 		{
-			image = Content.Load<Texture2D>(imageFile);
-
-			rect.Width = image.Width;
-			rect.Height = image.Height;
+            Robanim.SpriteSheet = Content.Load<Texture2D>(imageFile);
 
 			rect.X = (int)Position.X;
 			rect.Y = (int)Position.Y;
+
+            rect.Width = Robanim.FrameWidth;
+            rect.Height = Robanim.FrameHeight;
 		}
 
 		public virtual void Update(GameTime gameTime)
@@ -43,7 +44,7 @@ namespace WeakSven
 
 		public void Draw(SpriteBatch spriteBatch)
 		{
-			spriteBatch.Draw(image, rect, Color.White);
+			Robanim.Draw(spriteBatch, Position);
 		}
 	}
 }

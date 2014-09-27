@@ -5,85 +5,87 @@ namespace WeakSven
 {
 	class Animation
 	{
-		public int FrameWidth { get; private set; }
-		public int FrameHeight { get; private set; }
+        public int FrameWidth { get; private set; }
+        public int FrameHeight { get; private set; }
 
-		private Texture2D spriteSheet = null;
-		public Texture2D SpriteSheet
-		{
-			get { return spriteSheet; }
-			set
-			{
-				spriteSheet = value;
 
-				FrameWidth = value.Width / FrameCountX;
-				FrameHeight = value.Height / FrameCountY;
-			}
-		}
+        private Rectangle sourceRect = new Rectangle(0, 0, 0, 0);
+        private Texture2D spriteSheet = null;
+        public Texture2D SpriteSheet
+        {
+            get { return spriteSheet; }
+            set
+            {
+                spriteSheet = value;
 
-		private const float Rotation = 0;
-		private const float Scale = 1.0f;
-		private const float Depth = 0.0f;
-		public int FrameCountX { get; set; }
-		public int FrameCountY { get; set; }
-		private float TimePerFrame { get; set; }
-		private int framesPerSecond = 33;
-		public int FramesPerSec
-		{
-			get { return framesPerSecond; }
-			set
-			{
-				TimePerFrame = 1.0f / value;
-				framesPerSecond = value;
-			}
-		}
+                FrameWidth = value.Width / FrameCountX;
+                FrameHeight = value.Height / FrameCountY;
 
+            }
+        }
+
+        private const float Rotation = 0;
+        private const float Scale = 1.0f;
+        private const float Depth = 0.0f;
+        public int FrameCountX { get; set; }
+        public int FrameCountY {get; set;}
+        private float TimePerFrame {get; set;}
+        private int framesPerSecond = 33;
+        public int FramesPerSec
+        {
+            get { return framesPerSecond; }
+            set
+            {
+                TimePerFrame = 1.0f / value;
+                framesPerSecond = value;
+            }
+        }
         public int sequenceStart = 0;
         public int sequenceEnd = 0;
 
-		public int Frame { get; set; }
-		public bool Paused { get; set; }
-		public float TotalElapsed { get; set; }
+        public int Frame { get; set; }
+        public bool paused { get; set; }
+        public float totalElapsed { get; set; }
 
-		// class AnimatedTexture
-		public void Update(GameTime gameTime)
-		{
-			float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
+        public void Update(GameTime gameTime)
+        {
+            float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-			if (Paused)
-				return;
+            if (paused)
+                return;
 
-			TotalElapsed += elapsed;
-			if (TotalElapsed > TimePerFrame)
-			{
-				Frame++;
-				// Keep the Frame between 0 and the total frames, minus one.
-
+            totalElapsed += elapsed;
+            if (totalElapsed > TimePerFrame)
+            {
                 if (sequenceStart == sequenceEnd && sequenceStart == 0)
-                    Frame = Frame % (FrameCountX * FrameCountY); 
-                else
-                    Frame = Frame % (sequenceEnd - sequenceStart); 
-				Frame = Frame % (FrameCountX * FrameCountY);
-				TotalElapsed -= TimePerFrame;
-			}
-		}
+                    Frame = Frame % (FrameCountX * FrameCountY);
+                else if (Frame > sequenceEnd)
+                    Frame = Frame % sequenceStart;
 
-		// class AnimatedTexture
-		public void Draw(SpriteBatch batch, Vector2 screenPos)
-		{
-			Draw(batch, Frame, screenPos);
-		}
+                Frame = Frame % (sequenceEnd - sequenceStart) + sequenceStart;
+            }
+        }
 
-		public void Draw(SpriteBatch spriteBatch, int frame, Vector2 screenPos)
-		{
-			int xFrame = frame % FrameCountX;
-			int yFrame = frame / FrameCountY;
+        public void Draw(SpriteBatch batch, Vector2 screenPos)
+        {
+            Draw(batch, Frame, screenPos);
+        }
 
-			Rectangle sourcerect = new Rectangle(FrameWidth * xFrame, FrameHeight * yFrame,
-				FrameWidth, FrameHeight);
+        public void Draw(SpriteBatch spriteBatch, int frame, Vector2 screenPos)
+        {
+            int xFrame = frame % FrameCountX;
+            int yFrame = frame % FrameCountY;
 
-			spriteBatch.Draw(spriteSheet, screenPos, sourcerect, Color.White,
-				Rotation, Vector2.Zero, Scale, SpriteEffects.None, Depth);
-		}
+            sourceRect.X = FrameWidth * xFrame;
+            sourceRect.Y = FrameHeight * yFrame;
+            sourceRect.Width = FrameWidth;
+            sourceRect.Height = FrameHeight;
+
+
+            //spriteBatch.Draw(spriteSheet, screenPos, sourceRect, Color.White,
+            //    Rotation, Vector2.Zero, Scale, SpriteEffects.None, Depth);
+
+            spriteBatch.Draw(spriteSheet, screenPos, sourceRect, Color.White);
+        }
 	}
 }
