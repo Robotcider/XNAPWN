@@ -39,13 +39,13 @@ namespace WeakSven
         //**********************************************
 
         public Vector2 previousPosition { get; private set; }
+        public Rectangle Rect { get { return rect; } }
 
 		public void SetName(string name) { Name = name; }
 		
 		public override void Load(ContentManager Content, string imageFile)
 		{
-			//base.Load(Content, imageFile);
-            //PProjectile texture
+
             bulletTexture = Content.Load<Texture2D>("portalTex");
             image = Content.Load<Texture2D>(imageFile);
             Health = 100;
@@ -58,18 +58,14 @@ namespace WeakSven
             //See Camera.Move() for corresponding numbers
             rect.X = (int)Position.X + 400;
             rect.Y = (int)Position.Y + 240;
-         
-            Position.X = (Game1.SCREEN_WIDTH - rect.Width) * 0.5f;
-			Position.Y = (Game1.SCREEN_HEIGHT - rect.Height) * 0.5f;
 
 		}
 
 		public override void Update(GameTime gameTime)
 		{
+            Move();
 
             previousPosition = this.Position;
-			// TODO:  Change player to my Robotic operating Buddy
-
 
             if (Position.Y < 0)
             {
@@ -82,26 +78,24 @@ namespace WeakSven
             if (Mouse.GetState().LeftButton == ButtonState.Pressed &&
                  Game1.previousMouse.LeftButton == ButtonState.Released)
                 Fire(new Vector2(Mouse.GetState().X - 400, Mouse.GetState().Y - 240));
-
-
+            
             foreach (Projectile p in bullets)
-                p.Update(gameTime);
+                p.Update(gameTime);                   
+            //*****************************************
 
 
 
             Position += Velocity;
             Velocity.Y += Physics.GRAVITY;
 
+            if (Position.Y + image.Height > LevelHandler.Instance.CurrentLevel.y)
+                Landed(LevelHandler.Instance.CurrentLevel.y);  
+
 		}
-
-
-		
-
-        public Rectangle Rect { get { return rect; } }
 
         public void Landed(int floorY)
         {
-            Position = new Vector2(Position.X, floorY + rect.Height);
+            Position = new Vector2(Position.X, floorY - rect.Height);
             Velocity = new Vector2(Velocity.X, 0);
         }
 
@@ -112,7 +106,6 @@ namespace WeakSven
 
         public void Draw(SpriteBatch spriteBatch)
         {
-
             spriteBatch.Draw(image, Rect, Color.White);
             foreach(Projectile p in bullets)
                 p.Draw(spriteBatch);
@@ -130,8 +123,10 @@ namespace WeakSven
             if (Keyboard.GetState().IsKeyDown(Keys.Space) &&
                 Game1.previousKeyboard.IsKeyUp(Keys.Space))
             {
-                if (Player.Instance.Velocity != Vector2.Zero && Keyboard.GetState().IsKeyDown(Keys.Space))
-                    Velocity.Y = -15;
+                //if (Player.Instance.Velocity != Vector2.Zero && Keyboard.GetState().IsKeyDown(Keys.Space))
+                //    Velocity.Y = -15;
+                Velocity.Y = -15;
+
             }
 
             if (Keyboard.GetState().IsKeyDown(Keys.A) ||

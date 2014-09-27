@@ -29,6 +29,7 @@ namespace WeakSven
 		//********************************
 
         public static KeyboardState previousKeyboard;
+        public static MouseState previousMouse;
 
         HUD hud = new HUD();
 
@@ -98,9 +99,6 @@ namespace WeakSven
 
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
-
 			if (Keyboard.GetState().IsKeyDown(Keys.Escape))
 				this.Exit();
 
@@ -111,41 +109,19 @@ namespace WeakSven
             if (LevelHandler.Instance.CurrentLevel == null)
                 return;
 
-            if (Player.Instance.Position.Y + Player.Instance.image.Height > LevelHandler.Instance.CurrentLevel.height)
-                Player.Instance.Landed(LevelHandler.Instance.CurrentLevel.height);  
+
             
 			Player.Instance.Update(gameTime);
             Camera.Instance.Update(gameTime);
 
 
-            LevelHandler.Instance.CurrentLevel.Update(gameTime);
+            LevelHandler.Instance.Update(gameTime);
 
-            if (LevelHandler.Instance.CurrentLevel == null)
-                return;
 
-            if (Player.Instance.Position.Y + Player.Instance.image.Height > Window.ClientBounds.Height)
-                Player.Instance.Landed(Window.ClientBounds.Height);
-
-            for (int i = 0; i < level1.platforms.Count; i++)
-            {
-                if (Player.Instance.Rect.Intersects(level1.platforms[i].rect))
-                {
-					Player.Instance.Velocity = new Vector2(0, 0);
-                    Player.Instance.Position = new Vector2(Player.Instance.Position.X, level1.platforms[i].rect.Y + level1.platforms[i].rect.Height);
-                    break;
-                }
-            }
-
-            if (Mouse.GetState().LeftButton == ButtonState.Pressed)
-                Player.Instance.Fire(new Vector2(Mouse.GetState().X, Mouse.GetState().Y));
-            
-			Player.Instance.Update(gameTime);
-            Camera.Instance.Update(gameTime);
-
-            hud.Update(gameTime);
+            previousKeyboard = Keyboard.GetState();
+            previousMouse = Mouse.GetState();
 
             base.Update(gameTime);
-            previousKeyboard = Keyboard.GetState();
         }
 
         protected override void Draw(GameTime gameTime)
@@ -156,15 +132,7 @@ namespace WeakSven
             if (LevelHandler.Instance.CurrentLevel != null)
             {
                 Player.Instance.Draw(spriteBatch);
-
-                LevelHandler.Instance.CurrentLevel.Draw(spriteBatch);
-
-            }
-            if (LevelHandler.Instance.CurrentLevel == null)
-            {
-                Player.Instance.Draw(spriteBatch);
-
-                LevelHandler.Draw(spriteBatch);
+                LevelHandler.Instance.Draw(spriteBatch);
             }
 			if(LevelHandler.Instance.CurrentLevel == null)
 				spriteBatch.Draw(TitleSimage, TitleSrect, Color.White);

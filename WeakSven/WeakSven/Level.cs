@@ -11,8 +11,8 @@ namespace WeakSven
     class Level
     {
 
-        static int x = 1600;
-        static int y = 1200;
+        public int x = 1600;
+        public int y = 1200;
 
         SpriteFont font;
 
@@ -26,7 +26,15 @@ namespace WeakSven
 
         public void Update(GameTime gameTime)
         {
-
+            foreach (Platform p in platforms)
+            {
+                if (Player.Instance.Rect.Intersects(p.rect))
+                {
+                    Player.Instance.Velocity = new Vector2(0, 0);
+                    Player.Instance.Position = new Vector2(Player.Instance.Position.X, p.rect.Y - Player.Instance.Rect.Height);
+                     break;
+                }
+            }
         }
 
         public void Load(ContentManager Content)

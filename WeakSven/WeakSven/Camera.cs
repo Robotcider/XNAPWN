@@ -22,6 +22,7 @@ namespace WeakSven
                 {
                     instance = new Camera();
                     instance.Speed = 15;
+                    
                 }
 
                 return instance;
@@ -54,7 +55,7 @@ namespace WeakSven
 				previous.Y = Position.Y;
 			}
 
-            Position += Velocity;
+            //Position += Velocity;
 		}
 
         private void Move()

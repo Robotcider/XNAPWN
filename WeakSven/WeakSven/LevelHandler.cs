@@ -1,4 +1,6 @@
 ﻿
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 namespace WeakSven
 {
@@ -45,8 +47,12 @@ namespace WeakSven
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            foreach (Platform p in drawPlats)
-                p.Draw();
+            CurrentLevel.Draw(spriteBatch);
+        }
+
+        public void Update(GameTime gameTime)
+        {
+            CurrentLevel.Update(gameTime);
         }
 
         
