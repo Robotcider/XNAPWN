@@ -2,3 +2,4 @@ D:\GitHub\XNAPWN\WeakSven\WeakSvenContent\obj\x86\Debug\WeakSvenContent.contentp
 C:\Users\student\Desktop\XNAPWN\WeakSven\WeakSvenContent\obj\x86\Debug\WeakSvenContent.contentprojResolveAssemblyReference.cache
 C:\Users\student\Documents\GitHub\XNAPWN\WeakSven\WeakSvenContent\obj\x86\Debug\WeakSvenContent.contentprojResolveAssemblyReference.cache
 C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSvenContent\obj\x86\Debug\WeakSvenContent.contentprojResolveAssemblyReference.cache
+F:\Documents\GitHub\XNAPWN\WeakSven\WeakSvenContent\obj\x86\Debug\WeakSvenContent.contentprojResolveAssemblyReference.cache

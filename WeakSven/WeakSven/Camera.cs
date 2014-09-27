@@ -35,8 +35,7 @@ namespace WeakSven
 		public event ChangedPositionEvent changedPosition = null;
 
         public float Speed { get; private set; }
-        public float x;
-		public float y;
+
         int width = Game1.SCREEN_WIDTH;
         int height = Game1.SCREEN_HEIGHT;
 
@@ -55,14 +54,13 @@ namespace WeakSven
 				previous.Y = Position.Y;
 			}
 
-			base.Update(gameTime);
+            Position += Velocity;
 		}
 
         private void Move()
         {
-            Position = Player.Instance.Position;
+            Position.X = Player.Instance.Position.X;
+            Position.Y = Player.Instance.Position.Y - 240;  
         }
-
-
     }
 }

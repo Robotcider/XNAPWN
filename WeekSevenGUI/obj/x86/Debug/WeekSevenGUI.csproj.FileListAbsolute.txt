@@ -10,3 +10,9 @@ C:\Users\robert\Documents\GitHub\XNAPWN\WeekSevenGUI\obj\x86\Debug\Microsoft.Xna
 C:\Users\robert\Documents\GitHub\XNAPWN\WeekSevenGUI\obj\x86\Debug\WeekSevenGUI.dll
 C:\Users\robert\Documents\GitHub\XNAPWN\WeekSevenGUI\obj\x86\Debug\WeekSevenGUI.pdb
 C:\Users\robert\Documents\GitHub\XNAPWN\WeekSevenGUI\obj\x86\Debug\WeekSevenGUI.csprojResolveAssemblyReference.cache
+F:\Documents\GitHub\XNAPWN\WeekSevenGUI\bin\x86\Debug\WeekSevenGUI.dll
+F:\Documents\GitHub\XNAPWN\WeekSevenGUI\bin\x86\Debug\WeekSevenGUI.pdb
+F:\Documents\GitHub\XNAPWN\WeekSevenGUI\obj\x86\Debug\WeekSevenGUI.csprojResolveAssemblyReference.cache
+F:\Documents\GitHub\XNAPWN\WeekSevenGUI\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+F:\Documents\GitHub\XNAPWN\WeekSevenGUI\obj\x86\Debug\WeekSevenGUI.dll
+F:\Documents\GitHub\XNAPWN\WeekSevenGUI\obj\x86\Debug\WeekSevenGUI.pdb

@@ -29,13 +29,8 @@ namespace WeakSven
 		//********************************
 
         public static KeyboardState previousKeyboard;
-        public static MouseState previousMouse;
 
         HUD hud = new HUD();
-
-        Level currentLevel;
-
-
 
         public Game1()
         {
@@ -45,19 +40,17 @@ namespace WeakSven
 
         protected override void Initialize()
         {
-            base.Initialize();
-
-            
+            base.Initialize();           
         }
 
         void button_onClick(Component sender)
         {
             ((Button)sender).Text = "Clicked";
+		
+			MediaPlayer.Stop();
 
-            MediaPlayer.Stop();
-
-            MediaPlayer.Play(LevelSong1);
-
+			MediaPlayer.Play(LevelSong1);
+          
 			button.onClick -= button_onClick;
 			button.Unload();
         }
@@ -81,12 +74,12 @@ namespace WeakSven
 
 			hud.Load(Content);
 
-            currentLevel = LevelHandler.Instance.CreateLevel1();
-            if(currentLevel != null)
-                currentLevel.Load(Content);
+            //currentLevel = LevelHandler.Instance.CreateLevel1();
+            LevelHandler.Instance.CreateLevel1();
+            if(LevelHandler.Instance.CurrentLevel != null)
+                LevelHandler.Instance.CurrentLevel.Load(Content);
 
             
-
 			TitleSimage = Content.Load<Texture2D>("Pictures/Robscreen");
 
 			TitleTheme = Content.Load<Song>("Audio/Musak/ContraTitleScreen");
@@ -95,17 +88,19 @@ namespace WeakSven
 
 			MediaPlayer.Play(TitleTheme);
 
-            
-
 
 			Player.Instance.Load(Content, "Characters/PlaceHolderRob");
-            Player.Instance.Position = new Vector2(800, 600);
+            //TODO: Create spawnpoint vector in each level, spawn player at point
+            Player.Instance.Position = new Vector2(400, 600);
         }
 
         protected override void UnloadContent() { }
 
         protected override void Update(GameTime gameTime)
         {
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+                this.Exit();
+
 			if (Keyboard.GetState().IsKeyDown(Keys.Escape))
 				this.Exit();
 
@@ -113,23 +108,44 @@ namespace WeakSven
 
 			hud.Update(gameTime);
 
-            if (currentLevel == null)
+            if (LevelHandler.Instance.CurrentLevel == null)
                 return;
 
-            if (Player.Instance.Position.Y + Player.Instance.image.Height > currentLevel.height)
-                Player.Instance.Landed(currentLevel.height);  
+            if (Player.Instance.Position.Y + Player.Instance.image.Height > LevelHandler.Instance.CurrentLevel.height)
+                Player.Instance.Landed(LevelHandler.Instance.CurrentLevel.height);  
             
 			Player.Instance.Update(gameTime);
             Camera.Instance.Update(gameTime);
+
+
+            LevelHandler.Instance.CurrentLevel.Update(gameTime);
+
+            if (LevelHandler.Instance.CurrentLevel == null)
+                return;
+
+            if (Player.Instance.Position.Y + Player.Instance.image.Height > Window.ClientBounds.Height)
+                Player.Instance.Landed(Window.ClientBounds.Height);
+
+            for (int i = 0; i < level1.platforms.Count; i++)
+            {
+                if (Player.Instance.Rect.Intersects(level1.platforms[i].rect))
+                {
+					Player.Instance.Velocity = new Vector2(0, 0);
+                    Player.Instance.Position = new Vector2(Player.Instance.Position.X, level1.platforms[i].rect.Y + level1.platforms[i].rect.Height);
+                    break;
+                }
+            }
+
+            if (Mouse.GetState().LeftButton == ButtonState.Pressed)
+                Player.Instance.Fire(new Vector2(Mouse.GetState().X, Mouse.GetState().Y));
             
-            
-            currentLevel.Update(gameTime);
+			Player.Instance.Update(gameTime);
+            Camera.Instance.Update(gameTime);
 
             hud.Update(gameTime);
 
             base.Update(gameTime);
             previousKeyboard = Keyboard.GetState();
-            previousMouse = Mouse.GetState();
         }
 
         protected override void Draw(GameTime gameTime)
@@ -137,14 +153,20 @@ namespace WeakSven
             GraphicsDevice.Clear(Color.Black);
             spriteBatch.Begin();
 
-            if (currentLevel != null)
+            if (LevelHandler.Instance.CurrentLevel != null)
             {
                 Player.Instance.Draw(spriteBatch);
 
-                currentLevel.Draw(spriteBatch);
+                LevelHandler.Instance.CurrentLevel.Draw(spriteBatch);
 
             }
-			if(currentLevel == null)
+            if (LevelHandler.Instance.CurrentLevel == null)
+            {
+                Player.Instance.Draw(spriteBatch);
+
+                LevelHandler.Draw(spriteBatch);
+            }
+			if(LevelHandler.Instance.CurrentLevel == null)
 				spriteBatch.Draw(TitleSimage, TitleSrect, Color.White);
 
             UIManager.Draw(spriteBatch);

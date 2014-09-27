@@ -82,7 +82,6 @@
     <Compile Include="HUD.cs" />
     <Compile Include="InteractiveCharacter.cs" />
     <Compile Include="Level.cs" />
-    <Compile Include="LevelHandler.cs" />
     <Compile Include="Physics.cs" />
     <Compile Include="Platform.cs" />
     <Compile Include="Player.cs" />

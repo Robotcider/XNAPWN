@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace WeakSven
 {
 	// sealed
-	class Player : Character
+	class Player : InteractiveCharacter
 	{
 		#region Singleton Stuff
 		private static Player instance = null;
@@ -15,20 +15,17 @@ namespace WeakSven
 		{
 			get
 			{
-                
-
 				if (instance == null)
 				{
 					instance = new Player();
 					instance.UseGravity = true;
-                    //Camera.Instance.changedPosition += instance.MoveRect;
 				}
 
 				return instance;
 			}
 		}
 
-		private Player() : base() { }
+        private Player() : base() {  }
 		#endregion
 
         public bool jumping = false;
@@ -42,33 +39,36 @@ namespace WeakSven
         //**********************************************
 
         public Vector2 previousPosition { get; private set; }
-        public Rectangle Rect { get { return rect; } }
 
 		public void SetName(string name) { Name = name; }
 		
 		public override void Load(ContentManager Content, string imageFile)
 		{
-			base.Load(Content, imageFile);
+			//base.Load(Content, imageFile);
             //PProjectile texture
             bulletTexture = Content.Load<Texture2D>("portalTex");
-
+            image = Content.Load<Texture2D>(imageFile);
             Health = 100;
-            //Position.X = 400;
-            //Position.Y = 300;
 
-            
+            rect.Width = image.Width;
+            rect.Height = image.Height;
+
+
+            //The numbers should be variables, I'm not sure which variables
+            //See Camera.Move() for corresponding numbers
+            rect.X = (int)Position.X + 400;
+            rect.Y = (int)Position.Y + 240;
+         
+            Position.X = (Game1.SCREEN_WIDTH - rect.Width) * 0.5f;
+			Position.Y = (Game1.SCREEN_HEIGHT - rect.Height) * 0.5f;
+
 		}
-
-        
 
 		public override void Update(GameTime gameTime)
 		{
 
-            Move();
-
             previousPosition = this.Position;
 			// TODO:  Change player to my Robotic operating Buddy
-
 
 
             if (Position.Y < 0)
@@ -76,29 +76,32 @@ namespace WeakSven
                 Position.Y = 0;
                 Velocity = new Vector2(Velocity.X, 0);
             }
-
-
-
-
             //*****************************
             //projectile shit
 
             if (Mouse.GetState().LeftButton == ButtonState.Pressed &&
                  Game1.previousMouse.LeftButton == ButtonState.Released)
-                Fire(new Vector2(Mouse.GetState().X, Mouse.GetState().Y));
+                Fire(new Vector2(Mouse.GetState().X - 400, Mouse.GetState().Y - 240));
+
 
             foreach (Projectile p in bullets)
                 p.Update(gameTime);
-            //*****************************
 
-			base.Update(gameTime);
+
+
+            Position += Velocity;
+            Velocity.Y += Physics.GRAVITY;
+
 		}
 
 
+		
+
+        public Rectangle Rect { get { return rect; } }
 
         public void Landed(int floorY)
         {
-            Position = new Vector2(Position.X, floorY - rect.Height);
+            Position = new Vector2(Position.X, floorY + rect.Height);
             Velocity = new Vector2(Velocity.X, 0);
         }
 
@@ -109,31 +112,21 @@ namespace WeakSven
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(image, rect, Color.White);
+
+            spriteBatch.Draw(image, Rect, Color.White);
             foreach(Projectile p in bullets)
                 p.Draw(spriteBatch);
         }
 
         public void Fire(Vector2 mousePosition)
         {
-             bullets.Add(new Projectile(new Vector2(Camera.Instance.x + 400, Camera.Instance.y + 300), mousePosition, bulletTexture));
+             bullets.Add(new Projectile(new Vector2(rect.X, rect.Y), mousePosition, bulletTexture));
 
         }
 
-        private void MoveRect(float x, float y)
-        {
-            rect.X += (int)x;
-            rect.Y += (int)y;
-        }
 
         private void Move()
         {
-            //if (Position.Y > Game1.SCREEN_HEIGHT) //change to level height
-            //{
-            //    Velocity.Y = 0;
-            //    Position.Y = Game1.SCREEN_HEIGHT;
-            //}
-
             if (Keyboard.GetState().IsKeyDown(Keys.Space) &&
                 Game1.previousKeyboard.IsKeyUp(Keys.Space))
             {
@@ -161,8 +154,5 @@ namespace WeakSven
                 Velocity = new Vector2(Velocity.X, 0);
             }
         }
-
-       
-
 	}
 }

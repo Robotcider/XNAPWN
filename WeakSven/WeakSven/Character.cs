@@ -6,13 +6,6 @@ namespace WeakSven
 {
 	class Character : Entity
 	{
-
-        public int Health { get; protected set; }
-        public int Attack { get; protected set; }
-        public int Defense { get; protected set; }
-        public int Money { get; protected set; }
-
-
 		public Texture2D image = null;
 
 		protected Rectangle rect = new Rectangle(0, 0, 0, 0);
@@ -41,11 +34,8 @@ namespace WeakSven
 		{
 			Position += Velocity;
 
-            //rect.X = (int)Position.X - (int)Camera.Instance.x;
-            //rect.Y = (int)Position.Y - (int)Camera.Instance.y ;
-
-
-      
+			rect.X = (int)Position.X;
+			rect.Y = (int)Position.Y;
 
 			if (UseGravity)
 	            Velocity.Y += Physics.GRAVITY;

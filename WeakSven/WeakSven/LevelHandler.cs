@@ -5,6 +5,8 @@ namespace WeakSven
     class LevelHandler
     {
 
+        public Level CurrentLevel { get; private set; }
+
         #region Singleton Stuff
         private static LevelHandler instance = null;
         public static LevelHandler Instance
@@ -23,25 +25,31 @@ namespace WeakSven
         private LevelHandler() { }
         #endregion
 
-        public Level CreateLevel1()
+        public void CreateLevel1()
         {
-            Level newLevel = null;
-
             //Creating platforms 
             //**************************************
             List<Platform> drawPlats = new List<Platform>();
             for (int i = 0; i < 6; i++)
             {
-                drawPlats.Add(new Platform((i * 50) + 100, (i * 25) + 200, 100, 25, "portalTex"));
+                drawPlats.Add(new Platform((i * 50) + 100, (i * 25) + 1000, 100, 25, "portalTex"));
             }
             drawPlats.Add(new Platform(0, 1200, 1600, 25, "portalTex"));
 
 
-            newLevel = new Level(drawPlats);
+            
             //**************************************
+            CurrentLevel = new Level(drawPlats);
 
-            return newLevel;
         }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            foreach (Platform p in drawPlats)
+                p.Draw();
+        }
+
+        
     }
 
 
