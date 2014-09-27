@@ -8,7 +8,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\HUD\TargetRetical.xnb</Output>
-      <Time>2014-09-19T19:47:47.2120769-07:00</Time>
+      <Time>2014-09-27T16:01:21.4688778-07:00</Time>
     </Item>
     <Item>
       <Source>Characters\PlaceHolderRob.png</Source>
@@ -17,7 +17,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\Characters\PlaceHolderRob.xnb</Output>
-      <Time>2014-09-19T19:47:47.2070738-07:00</Time>
+      <Time>2014-09-27T16:01:21.4608696-07:00</Time>
     </Item>
     <Item>
       <Source>portalTex.png</Source>
@@ -26,7 +26,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\portalTex.xnb</Output>
-      <Time>2014-09-19T19:47:47.2389382-07:00</Time>
+      <Time>2014-09-27T16:01:21.4958948-07:00</Time>
     </Item>
     <Item>
       <Source>Pictures\Robscreen.png</Source>
@@ -35,7 +35,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\Pictures\Robscreen.xnb</Output>
-      <Time>2014-09-20T12:02:18.911119-07:00</Time>
+      <Time>2014-09-27T16:01:21.4808842-07:00</Time>
     </Item>
     <Item>
       <Source>Font.spritefont</Source>
@@ -44,7 +44,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\Font.xnb</Output>
-      <Time>2014-09-19T19:47:47.2091018-07:00</Time>
+      <Time>2014-09-27T16:01:21.4648729-07:00</Time>
     </Item>
     <Item>
       <Source>Audio\Musak\vgbeat.mp3</Source>
@@ -54,7 +54,7 @@
       <Options>None</Options>
       <Output>C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\Audio\Musak\vgbeat.xnb</Output>
       <Extra>C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\Audio\Musak\vgbeat.wma</Extra>
-      <Time>2014-09-20T10:18:33.8837259-07:00</Time>
+      <Time>2014-09-27T16:01:21.4447882-07:00</Time>
     </Item>
     <Item>
       <Source>Audio\Musak\ContraTitleScreen.mp3</Source>
@@ -64,7 +64,7 @@
       <Options>None</Options>
       <Output>C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\Audio\Musak\ContraTitleScreen.xnb</Output>
       <Extra>C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\Audio\Musak\ContraTitleScreen.wma</Extra>
-      <Time>2014-09-20T15:09:40.4437826-07:00</Time>
+      <Time>2014-09-27T16:01:21.1635891-07:00</Time>
     </Item>
     <Item>
       <Source>Audio\Musak\Goldeneye.mp3</Source>
@@ -74,7 +74,16 @@
       <Options>None</Options>
       <Output>C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\Audio\Musak\Goldeneye.xnb</Output>
       <Extra>C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\Audio\Musak\Goldeneye.wma</Extra>
-      <Time>2014-09-20T16:17:04.1977287-07:00</Time>
+      <Time>2014-09-27T16:01:21.2576555-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Characters\Rob.png</Source>
+      <Name>Characters\Rob</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\robert\Documents\GitHub\XNAPWN\WeakSven\WeakSven\bin\x86\Debug\Content\Characters\Rob.xnb</Output>
+      <Time>2014-09-27T16:01:21.4628706-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

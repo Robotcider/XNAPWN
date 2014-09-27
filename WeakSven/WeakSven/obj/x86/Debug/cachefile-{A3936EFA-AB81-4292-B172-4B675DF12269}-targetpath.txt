@@ -9,3 +9,4 @@ Content\Audio\Musak\ContraTitleScreen.xnb
 Content\Audio\Musak\ContraTitleScreen.wma
 Content\Audio\Musak\Goldeneye.xnb
 Content\Audio\Musak\Goldeneye.wma
+Content\Characters\Rob.xnb

@@ -110,12 +110,10 @@ namespace WeakSven
                 p.Update(gameTime);                   
             //*****************************************
 
-            base.Update(gameTime);
+            //base.Update(gameTime);
 
             Position += Velocity;
             Velocity.Y += Physics.GRAVITY;
-
-
 		}
 
         public void Landed(int floorY)
@@ -132,11 +130,12 @@ namespace WeakSven
             return new Vector2(Position.X - previousPosition.X, Position.Y - previousPosition.Y);
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch, Vector2 offset)
         {
             foreach(Projectile p in bullets)
                 p.Draw(spriteBatch);
-            base.Draw(spriteBatch);
+
+            base.Draw(spriteBatch, offset);
         }
 
         public void Fire(Vector2 mousePosition)

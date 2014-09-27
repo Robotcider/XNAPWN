@@ -21,12 +21,9 @@ namespace WeakSven
 		public static int SCREEN_WIDTH = 0;
 		public static int SCREEN_HEIGHT = 0;
 
-		//*********************************
 		protected Song TitleTheme;
 
 		protected Song LevelSong1;
-
-		//********************************
 
         public static KeyboardState previousKeyboard;
         public static MouseState previousMouse;
@@ -128,11 +125,12 @@ namespace WeakSven
 
             if (LevelHandler.Instance.CurrentLevel != null)
             {
-                Player.Instance.Draw(spriteBatch);
                 LevelHandler.Instance.Draw(spriteBatch);
             }
 			if(LevelHandler.Instance.CurrentLevel == null)
 				spriteBatch.Draw(TitleSimage, TitleSrect, Color.White);
+
+			Player.Instance.Draw(spriteBatch, new Vector2(SCREEN_WIDTH * 0.5f, SCREEN_HEIGHT * 0.5f));
 
             UIManager.Draw(spriteBatch);
 

@@ -42,9 +42,12 @@ namespace WeakSven
 	            Velocity.Y += Physics.GRAVITY;
 		}
 
-		public void Draw(SpriteBatch spriteBatch)
+		public virtual void Draw(SpriteBatch spriteBatch, Vector2 positionOverride)
 		{
-			Robanim.Draw(spriteBatch, Position);
+			if (positionOverride == Vector2.Zero)
+				Robanim.Draw(spriteBatch, Position);
+			else
+				Robanim.Draw(spriteBatch, positionOverride);
 		}
 	}
 }
