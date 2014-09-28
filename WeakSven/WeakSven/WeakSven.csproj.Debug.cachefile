@@ -3,10 +3,6 @@ Content\Characters\PlaceHolderRob.xnb
 Content\portalTex.xnb
 Content\Pictures\Robscreen.xnb
 Content\Characters\Rob.xnb
-Content\Font.xnb
-Content\Audio\Musak\vgbeat.xnb
-Content\Audio\Musak\ContraTitleScreen.xnb
-Content\Audio\Musak\Goldeneye.xnb
 Content\Textures\ComputerWall.xnb
 Content\Textures\ComputerWall01.xnb
 Content\Textures\Door.xnb
@@ -18,6 +14,10 @@ Content\Textures\GreenWall.xnb
 Content\Textures\PowerGenaretorWall.xnb
 Content\Textures\Wall.xnb
 Content\Textures\Wall01.xnb
+Content\Font.xnb
+Content\Audio\Musak\vgbeat.xnb
+Content\Audio\Musak\ContraTitleScreen.xnb
+Content\Audio\Musak\Goldeneye.xnb
 Content\Audio\Musak\vgbeat.wma
 Content\Audio\Musak\ContraTitleScreen.wma
 Content\Audio\Musak\Goldeneye.wma
