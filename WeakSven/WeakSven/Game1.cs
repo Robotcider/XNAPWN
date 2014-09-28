@@ -75,7 +75,7 @@ namespace WeakSven
             //currentLevel = LevelHandler.Instance.CreateLevel1();
             LevelHandler.Instance.CreateLevel1();
             if(LevelHandler.Instance.CurrentLevel != null)
-                LevelHandler.Instance.CurrentLevel.Load(Content);
+                LevelHandler.Instance.Load(Content);
 
             
 			TitleSimage = Content.Load<Texture2D>("Pictures/Robscreen");

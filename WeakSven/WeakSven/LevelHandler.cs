@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework.Content;
 namespace WeakSven
 {
     class LevelHandler
@@ -48,11 +49,18 @@ namespace WeakSven
         public void Draw(SpriteBatch spriteBatch)
         {
             CurrentLevel.Draw(spriteBatch);
+
         }
 
         public void Update(GameTime gameTime)
         {
             CurrentLevel.Update(gameTime);
+        }
+
+        public void Load(ContentManager Content)
+        {
+            LevelHandler.Instance.CurrentLevel.Load(Content);
+            CurrentLevel.LoadLevel(1);
         }
 
         
