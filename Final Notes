@@ -1,0 +1,8 @@
+Notes:
+Nice work on the various difficult tasks you had with this project.
+Try to communicate more effectively with your team in order to accomplish your goals. I noticed that there was some pretty hefty merging going on that can cause some issues in the future.  Try to make your commits targeted to a particular issue rather than committing with a lot of new changes in many areas.  For example, if you are doing something with the camera, then make a commit just for the camera changes.
+I did notice that some classes such as "PortalTwoWay" were coded but were not used, that means that the time spent on this could have been spent on other issues that needed fixing.
+In the platform you could have used the rectangle .width and .height rather than making special extra variables for them, they also seem to be used reduntantly (assigned, passed into a function and then not being used again).
+The LevelHandler sounds like a class that shouldn't have any level specific stuff in it found on line 35-40.  These probably would be better in their own level class or file.
+I would like to see the level loading stuff from Level in LevelHandler as it sounds like that is what should handle the loading, unloading, and usage of levels.
+Try to move the title/menu stuff out of Game1 into its own level.
